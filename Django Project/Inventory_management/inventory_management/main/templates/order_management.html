@@ -1,0 +1,252 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+
+    <!-- ✅ Bootstrap & Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f7f9fc, #e3f2fd);
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        h2,
+        h3 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #1a237e;
+        }
+
+        h3 {
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-shadow: none;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #45bee3;
+            box-shadow: 0 0 0 0.15rem rgba(69, 190, 227, 0.25);
+        }
+
+        .button {
+            background-color: #45bee3;
+            border: none;
+            font-weight: bold;
+            padding: 14px 25px;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 10px;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .button:hover {
+            background-color: #2b98bd;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            margin-right: 15px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #0077b6;
+        }
+
+        textarea.form-control {
+            resize: none;
+            min-height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <strong class="brand-name">Invenzo</strong>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'order_management' %}">Order-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'inventory_tracking' %}">Inventory-Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'barcodes' %}">Barcode-Scanning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'integrations2' %}">Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'warehouse_management' %}">Warehouse-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reports' %}">Reports</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary text-white ms-2" href="{% url 'team' %}">Talk to Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ✅ Main Form Section -->
+    <div class="container">
+
+        <h2>Add New Items Here</h2>
+
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- Item Info -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Item ID:</label>
+                    <input type="number" name="item_id" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Item Name:</label>
+                    <input type="text" name="item_name" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-label">Category:</label>
+                    <select id="category-select" name="item_category" class="form-control" required>
+                        <option value="" disabled selected>Select a Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" class="form-control" oninput="calculateTotalCost()" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Cost per Unit:</label>
+                    <input type="number" id="cost-per-unit" name="cost_per_unit" class="form-control" step="0.01" oninput="calculateTotalCost()" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label">Total Cost:</label>
+                    <input type="number" id="total-cost" name="total_cost" class="form-control" step="0.01" readonly>
+                </div>
+            </div>
+
+            <h3>Supplier Information</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">Supplier Name:</label>
+                    <input type="text" name="supplier_name" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Supplier Email:</label>
+                    <input type="email" name="supplier_email" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Supplier Phone:</label>
+                    <input type="text" name="supplier_phone" class="form-control" required>
+                </div>
+            </div>
+
+            <h3>Order Status</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Order Status:</label>
+                    <select name="order_status" class="form-control" required>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Special Instructions or Notes:</label>
+                    <textarea name="notes" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="button">Submit Order</button>
+        </form>
+    </div>
+
+    <!-- ✅ Scripts -->
+    <script>
+        function calculateTotalCost() {
+            const quantity = document.getElementById('quantity').value;
+            const costPerUnit = document.getElementById('cost-per-unit').value;
+            document.getElementById('total-cost').value = (quantity * costPerUnit).toFixed(2);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            $('#category-select').select2({
+                placeholder: "Select a Category",
+                allowClear: true
+            });
+
+            const messageContainer = document.getElementById('message-container');
+            if (messageContainer) {
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

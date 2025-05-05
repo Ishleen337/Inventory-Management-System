@@ -1,0 +1,270 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Container styling */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Section headings */
+.section-headings {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.section-headings h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.section-headings p {
+    font-size: 1.2em;
+    color: #777;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Testimonials styling */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Hover effect */
+/* Background color transition */
+.testimonial:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Staggering the testimonials */
+.testimonial:nth-child(odd) {
+    grid-row: span 2;
+}
+
+.testimonial:nth-child(even) {
+    grid-row: span 1;
+}
+
+/* Testimonial content */
+.testimonial-content p {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Testimonial author styling */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.profile-icon {
+    font-size: 2em;
+    color: #555;
+    margin-right: 10px;
+    animation: bounce 1s ;
+}
+
+
+
+.testimonial-author-info h3 {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.testimonial-author-info p {
+    font-size: 0.9em;
+    color: #777;
+}
+
+
+
+.profile-icon i { 
+    font-size: 2em; /* Adjust the value (2em, 2.5em, etc.) as needed */
+}
+
+/* Example styles for the "Love Zoho Inventory" section */
+.love-zoho {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the content */
+    margin-top: 60px; /* Add some top margin */
+}
+
+.love-zoho h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.love-zoho .share-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 10px;
+}
+
+.love-zoho .share-buttons button {
+    background-color: #484545; /* Example button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.love-zoho .share-buttons button:hover{
+    background-color: black;
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+    .testimonials {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .section-headings h1 {
+        font-size: 2em;
+    }
+
+    .section-headings p {
+        font-size: 1em;
+    }
+}
+
+
+/*Footer*/
+
+footer {
+    background-color: #121212;
+    color: white;
+    padding: 40px 60px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-top p, .footer-top label {
+    font-size: 14px;
+}
+
+.footer-top a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    width: 30%;
+}
+
+.footer-left img, .footer-right img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.certifications img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    width: 22%;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.footer-bottom a {
+    color: #00aaff;
+    text-decoration: none;
+}

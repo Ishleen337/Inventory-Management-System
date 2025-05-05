@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8em; /* Set font size to 0.8em */
+    }
+
+    /* Navbar Styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2em 3em; /* Increased padding */
+      background-color: #333;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.3em; /* Slightly larger font size for links */
+    }
+
+    nav a.home {
+      border: 2px solid white;
+      padding: 0.8em 1.5em; /* Larger padding */
+      border-radius: 4px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a.home:hover {
+      background-color: #555;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      padding: 3em 0; /* Increased padding for header */
+      background-color: white;
+    }
+
+    h1 {
+      font-size: 3.5em; /* Larger size for the header */
+      letter-spacing: 2px;
+      animation: slideInFromTop 1.5s ease-out;
+    }
+
+    p {
+      font-size: 1.4em; /* Slightly larger font size for paragraph */
+      margin-top: 1em;
+      animation: slideInFromBottom 1.5s ease-out;
+    }
+
+    .blog-container {
+      padding: 3em 4em; /* Increased padding for content */
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    .blog-section {
+      background-color: #fff;
+      padding: 3em; /* Larger padding for sections */
+      margin-bottom: 2.5em; /* Increased space between sections */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    .blog-section h2 {
+      font-size: 2.8em; /* Larger size for subheadings */
+      margin-bottom: 1.5em;
+    }
+
+    .blog-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .blog-section li {
+      margin: 2.5em 0; /* More space between list items */
+      font-size: 1.4em; /* Slightly larger font size for list items */
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 1.2em 2.5em; /* Larger padding for button */
+      border: none;
+      border-radius: 4px;
+      font-size: 1.5em; /* Larger font size for the button */
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Additional info by default visible */
+    .additional-info {
+      display: block;
+      background-color: #fff;
+      padding: 3em; /* Larger padding for the additional information */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 2.5em;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease-in-out;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      width: 100%;
+    }
+
+    /* Animations */
+    @keyframes slideInFromTop {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromBottom {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div><a href="/">Invenzo</a></div>
+    <div><a href="/" class="home">Home</a></div> <!-- Added "home" class for styling -->
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Blogs</h1>
+    <p>Keep up with the latest developments and features at Invenzo Inventory. Get useful tips and tricks.</p>
+  </header>
+
+  <section class="blog-container">
+    <!-- Blog Section -->
+    <div class="blog-section">
+      <h2>Blogs</h2>
+      <p>Welcome to the Invenzo Inventory blog section, where you can explore the latest features, updates, and tips related to inventory management:</p>
+      <ul>
+        <li><strong>Introducing New Features:</strong> Stay up to date with the latest features added to Invenzo Inventory. From smarter inventory tracking to seamless integrations with third-party software, we cover everything that is new and exciting.</li>
+        <li><strong>Maximizing Efficiency:</strong> Efficient inventory management can save your business time and money. Discover expert tips on how to optimize your stock levels, streamline your supply chain, and boost your business’s overall efficiency.</li>
+        <li><strong>Inventory Management Best Practices:</strong> Invenzo Inventory is built to help you keep your stock organized and accurate. In this post, we explore best practices for inventory control, including regular stock audits, implementing barcode systems, and creating automatic reorder points.</li>
+        <li><strong>Case Studies and Success Stories:</strong> Want to see how other businesses are benefiting from Invenzo Inventory? Read through our case studies and success stories, where we showcase how companies of all sizes are leveraging our platform to transform their inventory management.</li>
+        <li><strong>Invenzo for Business Growth:</strong> Learn how Invenzo’s scalable and flexible inventory management system helps businesses grow by providing real-time insights into stock levels, sales trends, and inventory performance. Find out how our features can help you scale your operations with ease.</li>
+        <li><strong>Tips for Managing Seasonal Stock:</strong> Managing inventory for seasonal businesses can be tricky. In this blog post, we offer tips on how to handle seasonal fluctuations, manage high-demand products, and keep track of seasonal sales trends to ensure you’re always prepared.</li>
+        <li><strong>Inventory Audits: Why They Matter:</strong> Regular audits are essential for maintaining accurate inventory. We dive into the importance of performing routine audits, what to check during the process, and how to identify and resolve discrepancies in your stock records.</li>
+        <li><strong>Custom Reports for Your Business Needs:</strong> Learn how to leverage Invenzo Inventory’s custom report generation feature. We’ll walk you through creating tailored reports to track the metrics that matter most to your business, including stock levels, turnover rates, and sales forecasts.</li>
+      </ul>
+      <div class="additional-info">
+        <p>Stay connected and be the first to know about upcoming features, improvements, and case studies to help you grow your business!</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Invenzo Inventory. All rights reserved.</p>
+</footer>
+</body>
+</html>

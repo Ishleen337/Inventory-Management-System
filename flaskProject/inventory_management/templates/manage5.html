@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhooks & Custom Functions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f9f9f9;
+            color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #666;
+            text-align: center;
+            animation: fadeInText 2s ease-out;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px;
+            width: 80%;
+            max-width: 1000px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Webhook Box */
+        .webhook-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .webhook-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .webhook-box h3 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .webhook-box input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border 0.3s ease;
+        }
+
+        .webhook-box input:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+        }
+
+        .webhook-box button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .webhook-box button:hover {
+            background-color: #218838;
+        }
+
+        /* Custom Function Box */
+        .custom-function-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .custom-function-box h4 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .custom-function-box button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-function-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .notification {
+            margin-top: 20px;
+            background-color: #e9f7e9;
+            color: #28a745;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            animation: slideInUp 1s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .webhook-box,
+            .custom-function-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Invenzo</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link talk-to-us" href="{{ url_for('contact_us') }}">Talk to Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div style="margin-top: 150px;">
+        <h1>Webhooks & Custom Functions</h1>
+        <h2>Set up webhooks and trigger custom functions for real-time actions</h2>
+
+        <div class="container">
+
+            <!-- Webhook Configuration -->
+            <div class="webhook-box">
+                <h3>Configure Your Webhook</h3>
+                <input type="text" id="webhookUrl" placeholder="Enter Webhook URL">
+                <button id="saveWebhookButton">Save Webhook</button>
+                <div class="notification" id="webhookNotification">Webhook successfully saved!</div>
+            </div>
+
+            <!-- Custom Function Trigger -->
+            <div class="custom-function-box">
+                <h4>Trigger Custom Functions</h4>
+                <button id="triggerCustomFunction">Run Custom Function</button>
+                <div class="notification" id="functionNotification">Custom Function triggered successfully!</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('saveWebhookButton').addEventListener('click', function () {
+            let webhookUrl = document.getElementById('webhookUrl').value;
+            if (webhookUrl) {
+                // Simulate saving webhook
+                simulateWebhookSave(webhookUrl);
+            }
+        });
+
+        document.getElementById('triggerCustomFunction').addEventListener('click', function () {
+            // Simulate running custom function
+            simulateCustomFunction();
+        });
+
+        // Simulate webhook save functionality
+        function simulateWebhookSave(url) {
+            console.log('Webhook URL:', url); // Logging to console
+            // Show notification
+            document.getElementById('webhookNotification').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('webhookNotification').style.display = 'none';
+            }, 3000);
+        }
+
+        // Simulate custom function execution
+        function simulateCustomFunction() {
+            // Show notification
+            document.getElementById('functionNotification').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('functionNotification').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>

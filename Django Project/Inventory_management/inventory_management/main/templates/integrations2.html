@@ -1,0 +1,388 @@
+{% load static %}  <!-- Load Django static files -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - Invenzo</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ✅ Custom CSS -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/integrations2.css' %}">
+</head>
+
+<body>
+
+    <!-- ✅ Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- ✅ Topic Content -->
+    <section class="topic-page text-center mt-5">
+        <header>
+            <h1>Powerful Integrations for Unparalleled Experience.</h1>
+        </header>
+        <div>
+            <h2 style="padding-top: 30px;"> Bring your Invenzo Inventory experience to a whole new level with our robust integrations.</h2>
+            <h2>Take a look at our add-on partners below, and let us know if you have any ideas for additional integrations</h2>
+        </div>
+
+        <section class="addons-container">
+            <h2>Shopping Cart</h2>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/shopify_logo.jpg' %}" alt="Shopify Logo">
+                        <h2>Shopify</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Transform your business online and manage your inventory effortlessly by integrating Invenzo with Shopify.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/ecwid.png' %}" alt="Ecwid Logo">
+                        <h2>Ecwid</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Transform your business online and manage your inventory effortlessly by integrating Invenzo with Ecwid.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/invenzo-commerce.png' %}" alt="Invenzo Commerce Logo">
+                        <h2>Invenzo Commerce</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Gain instant traction in the online business world by hosting your products on your custom-built website and managing them via robust Invenzo Commerce integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Shipping Integrations</h2>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/aftership_logo.jpg' %}" alt="AfterShip Logo">
+                        <h2>AfterShip</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Uphold your delivery promises by automating tracking of your shipments and sending real-time updates to your customers with the AfterShip integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/the-courier-guy.jpg' %}" alt="The Courier Guy Logo">
+                        <h2>The Courier Guy</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Integrate with The Courier Guy to deliver orders seamlessly. Fetch real-time rates and generate shipping labels, all from a single dashboard.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/ups.jpg' %}" alt="UPS Logo">
+                        <h2>UPS</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Collaborate with UPS, one of the world's largest package delivery companies, and cater to customers across nearly 200 countries worldwide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Marketplaces</h2>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/amazon_logo.jpg' %}" alt="Amazon Logo">
+                        <h2>Amazon</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Experience the convenience of managing sales orders, updating stock, and fulfilling orders from a single place by unifying your Amazon store with Invenzo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/etsy.png' %}" alt="Etsy Logo">
+                        <h2>Etsy</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Eliminate the effort of manual updates with the robust Etsy integrations. Seamless synchronization whenever you want it!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/flipkart.jpeg' %}" alt="Flipkart Logo">
+                        <h2>Flipkart</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Experience the convenience of managing sales orders, updating stock, and fulfilling orders from a single place by unifying your Flipkart store with Invenzo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>EDI</h2>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/sps_logo.jpg' %}" alt="SPS Commerce Logo">
+                        <h2>SPS Commerce</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Facilitate instant information transfer to your 3PL providers by integrating SPS Commerce with Invenzo. Say goodbye to manual data entry and sending delays.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/crossfire-edi.png' %}" alt="Crossfire EDI Logo">
+                        <h2>Crossfire EDI</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Satisfy your global audience and enable uninterrupted data exchange for your 3PL providers with the Crossfire EDI integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/celigo.png' %}" alt="Celigo Logo">
+                        <h2>Celigo</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Facilitate instant information transfer to your 3PL providers by integrating Celigo with Invenzo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Sales and Marketing</h2>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/google-shopping.png' %}" alt="USPS Logo">
+                        <h2>Google Shopping</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>List your products on Google Merchant Center for free by integrating with Invenzo. Sync your
+                            products in no time and enhance your visibility.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src=".{% static 'images/buffer.jpeg' %}" alt="USPS Logo">
+                        <h2>Buffer</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Just like Buffer schedules your social posts, Invenzo organizes your business ideas—together, they make your productivity unstoppable!</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/ebay.jpeg' %}" alt="USPS Logo">
+                        <h2>Ebay</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>List your products one ebay for free by integrating with Invenzo. Sync your
+                            products in no time and enhance your visibility.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Accounting</h2>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/tally.png' %}" alt="USPS Logo">
+                        <h2>Tally</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Sync your sales information like item lists, sales orders, invoices, e-way bills, and more,
+                            and stay on top of your taxes using our Invezo-Tally integration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/xero.jpeg' %}" alt="USPS Logo">
+                        <h2>Xero</h2>
+                    </div>
+                    <div class="card-back">
+                        <p> stay on top of your taxes using our Invezo-Tally integration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/quickbooks.jpeg' %}" alt="USPS Logo">
+                        <h2>Tally</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Sync your sales information like item lists, sales orders, invoices, e-way bills, and more.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Payment Services</h2>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/yes-bank.png' %}" alt="USPS Logo">
+                        <h2>Yes Bank</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Pay vendors individually or in bulk by integrating with your YES BANK Current Account with
+                            Invenzo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/razorpay_logo.png' %}" alt="USPS Logo">
+                        <h2>Razorpay</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Indian business can manage and accept online payments with Razorpay integration. Offer your
+                            customers the luxury of making payments via credit/debit cards, netbanking and other
+                            methods.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/paytm.png' %}" alt="USPS Logo">
+                        <h2>Paytm</h2>
+                    </div>
+                    <div class="card-back">
+                        <p> Offers your
+                            customers the luxury of making payments via credit/debit cards, netbanking and other
+                            methods.</p>
+                    </div>
+                </div>
+            </div>
+            <h2>Other Apps</h2>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/microsoft.png' %}" alt="USPS Logo">
+                        <h2>Microsoft</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Make the best use of Invenzo by importing your cintacts and users from Office 365, and
+                            connect your Outlook account to fetch email conversations with potential customers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/google.png' %}" alt="USPS Logo">
+                        <h2>Gsuite/Gmail</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>Simplify inventory by importing users and contacts from your G Suite in just a few taps with
+                            G Suite integraion.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addon-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="{% static 'images/bitrix.png' %}" alt="USPS Logo">
+                        <h2>Bitrix24</h2>
+                    </div>
+                    <div class="card-back">
+                        <p>This can help you manage communications more efficiently by automatically generating leads and contacts for each client who contacts you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </section>
+
+   <!-- Footer -->
+   <footer>
+    <div class="footer-top">
+        <div class="footer-left">
+            <p>Send us an <a href="#">Email</a> (or) India - 18005726671 (Monday - Friday 9:00AM to 7:00PM)</p>
+            <label for="edition">Select Edition:</label>
+            <select id="edition">
+                <option>🇮🇳 India</option>
+                <option>🇺🇸 USA</option>
+                <option>🇬🇧 UK</option>
+            </select>
+            <p>Available On:</p>
+            <img src="{% static 'images/app-store.png' %}" alt="App Store">
+            <img src="{% static 'images/google-play.png' %}" alt="Google Play">
+        </div>
+        <div class="footer-middle">
+            <p>Choose Privacy. Choose Invenzo.</p>
+            <div class="certifications">
+                <img src="{% static 'images/iso.png' %}" alt="ISO Certified">
+                <img src="{% static 'images/soc2.png' %}" alt="SOC2 Certified">
+                <img src="{% static 'images/gdpr.png' %}" alt="GDPR Compliant">
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>Connect with Us:</p>
+            <a href="#"><img src="{% static 'images/twitter.png' %}" alt="X"></a>
+            <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+            <a href="#"><img src="{% static 'images/instagram.png' %}" alt="Instagram"></a>
+            <a href="#"><img src="{% static 'images/youtube.png' %}" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Invenzo Corporation Pvt. Ltd. All Rights Reserved.</p>
+        <p>
+            <a href="#">Security</a> | <a href="#">Terms of Service</a> |
+            <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

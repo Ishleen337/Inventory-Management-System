@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Analytics - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            min-height: 250px;
+            background-color: #ffffff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .animate-reporting {
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            background-color: #6f42c1;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            padding-bottom: 80px; /* Ensure content is not hidden behind footer */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Larger card sizes */
+        .col-lg-4, .col-md-6 {
+            max-width: 350px;
+            transition: transform 0.2s ease;
+        }
+
+        .col-lg-4:hover, .col-md-6:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section Header Styling */
+        h1 {
+            color: #6f42c1;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .intro-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .intro-section h4 {
+            color: #6f42c1;
+            font-weight: bold;
+        }
+
+        .intro-section p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .btn-primary {
+            background-color: #6f42c1;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a2b9e;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <section class="container mt-5">
+        <!-- Intro Section -->
+        <div class="intro-section mb-5 animate-reporting">
+            <h4>Welcome to Invenzo's Reporting Analytics Page</h4>
+            <p>Our Reporting Analytics page provides valuable insights into your business, covering key metrics like sales, inventory, and customer feedback. Stay informed with detailed overviews, track your performance, and make data-driven decisions to enhance your operations. Explore each section to dive deeper into specific reports, and take action for continuous improvement.</p>
+        </div>
+
+        <h1 class="text-center mb-4">Key Analytics</h1>
+        <div class="row justify-content-center">
+            <!-- Sales Overview Card -->
+            <div class="col-lg-4 col-md-6 mb-4 animate-reporting">
+                <div class="card">
+                    <div class="card-header">
+                        Sales Overview
+                    </div>
+                    <div class="card-body">
+                        <h5>Total Sales: ₹500,000</h5>
+                        <p>Year-to-Date: ₹200,000</p>
+                        <p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#salesModal">View Details</button></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Insights Card -->
+            <div class="col-lg-4 col-md-6 mb-4 animate-reporting">
+                <div class="card">
+                    <div class="card-header">
+                        Inventory Insights
+                    </div>
+                    <div class="card-body">
+                        <h5>Items Sold: 10,000</h5>
+                        <p>Restocking in 3 days</p>
+                        <p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inventoryModal">View Inventory</button></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Feedback Card -->
+            <div class="col-lg-4 col-md-6 mb-4 animate-reporting">
+                <div class="card">
+                    <div class="card-header">
+                        Customer Feedback
+                    </div>
+                    <div class="card-body">
+                        <h5>Average Rating: 4.8/5</h5>
+                        <p>95% positive reviews</p>
+                        <p><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">View Feedback</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Overview Modal -->
+    <div class="modal fade" id="salesModal" tabindex="-1" aria-labelledby="salesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="salesModalLabel">Sales Overview Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Here are more details about the sales overview...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Insights Modal -->
+    <div class="modal fade" id="inventoryModal" tabindex="-1" aria-labelledby="inventoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inventoryModalLabel">Inventory Insights Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Here are more details about the inventory...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Customer Feedback Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Here are more details about the customer feedback...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body{
+    margin-top:60px;
+    padding:0;
+}
+/* Sidebar CSS */
+.side-navbar {
+    width: 250px;
+    background-color: #343a40;
+    padding-top: 20px;
+    color: #fff;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.side-navbar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+.side-navbar a:hover {
+    background-color: #495057;
+}
+
+/* Main Content CSS */
+.container {
+    margin-left: 230px; /* Adjust margin to create space between sidebar and main content */
+    padding: 20px;
+}
+
+.container1 {
+    background: linear-gradient(135deg, #e0f7fa, #b3e5fc); /* Light blue gradient background */
+    min-height: 100vh;
+    min-width: calc(100vw - 200px); /* Adjust width to fit within the viewport minus sidebar width */
+    /* padding-left: 250px; Align with sidebar width */
+}
+
+.topic-page h2 {
+    color: #16355b;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table CSS */
+.table-primary {
+    background: linear-gradient(135deg, #e0f7fa, #b3e5fc); /* Light blue gradient background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+    margin: 0 auto; /* Center the table */
+    width: 100%; /* Ensure the table takes up the full available width */
+    table-layout: fixed; /* Use fixed table layout */
+}
+
+.table-primary th, .table-primary td {
+    padding: 15px;
+    border: none;
+    text-align: center;
+    color: #333;
+    white-space: nowrap; /* Prevent text from overflowing */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+}
+
+.table-primary th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+}
+
+.table-primary tbody tr:nth-child(odd) {
+    background-color: #ecf0f1; /* Light blue background color for odd rows */
+}
+
+.table-primary tbody tr:nth-child(even) {
+    background-color: #ffffff; /* Lightest blue background color for even rows */
+}
+
+.table-primary tbody tr:hover {
+    background-color: #b3e5fc; /* Slightly darker blue on hover */
+}
+
+.table-primary tbody tr {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.table-primary .btn-warning {
+    background-color: #ffcc80;
+    border: none;
+}
+
+.table-primary .btn-danger {
+    background-color: #ff4c4c;
+    border: none;
+}
+
+.table-primary .btn-warning:hover, .table-primary .btn-danger:hover {
+    opacity: 0.8;
+}

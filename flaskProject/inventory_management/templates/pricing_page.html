@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Pricing Plans</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fb;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .brand-name {
+            font-size: 30px;
+            font-weight: 600;
+            color: #4c5c68;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .home-btn {
+            padding: 12px 25px;
+            background-color: #4c5c68;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #2f3a45;
+            transform: scale(1.05);
+        }
+
+        /* Pricing Section */
+        .pricing-container {
+            text-align: center;
+            padding: 120px 20px;
+            color: #2f3a45;
+        }
+
+        .pricing-heading {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2f3a45;
+        }
+
+        .pricing-subtext {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #f2f2f2;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            color: #4c5c68;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2f3a45;
+            margin-bottom: 15px;
+        }
+
+        .pricing-card p {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .get-started {
+            padding: 12px 25px;
+            background: #4c5c68;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .get-started:hover {
+            background-color: #2f3a45;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .pricing-heading {
+                font-size: 36px;
+            }
+
+            .home-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .pricing-container {
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <a class="brand-name" href="#">Invenzo</a>
+        <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    </nav>
+
+    <!-- Pricing Section -->
+    <div class="pricing-container">
+        <h2 class="pricing-heading">All Pricing Plans</h2>
+        <p class="pricing-subtext">Choose the best plan for your organization</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <h2>₹0</h2>
+                <p>per organization / year</p>
+                <button class="get-started" onclick="redirectToSignup('free')">GET STARTED</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Standard</h3>
+                <h2>₹12,999</h2>
+                <p>per organization / year</p>
+                <button class="get-started" onclick="redirectToSignup('standard')">GET STARTED</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Professional</h3>
+                <h2>₹26,999</h2>
+                <p>per organization / year</p>
+                <button class="get-started" onclick="redirectToSignup('professional')">GET STARTED</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <h2>₹45,999</h2>
+                <p>per organization / year</p>
+                <button class="get-started" onclick="redirectToSignup('premium')">GET STARTED</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <h2>₹89,999</h2>
+                <p>per organization / year</p>
+                <button class="get-started" onclick="redirectToSignup('enterprise')">GET STARTED</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToSignup(plan) {
+            window.location.href = `/signup2?plan=${plan}`;
+        }
+    </script>
+
+</body>
+</html>

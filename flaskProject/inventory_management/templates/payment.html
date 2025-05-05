@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - {{ plan | capitalize }}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #4a5b6a;
+            text-decoration: none;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #007bff;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Payment Page Styles */
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 80px;
+            box-sizing: border-box;
+        }
+
+        .payment-box {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .payment-box h2 {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .payment-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .payment-btn {
+            display: block;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .payment-btn:hover {
+            background: #0056b3;
+        }
+
+        /* UPI QR Section */
+        .upi-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .upi-qr {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .upi-section p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px;
+            }
+
+            .payment-box {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .payment-btn {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            .payment-text {
+                font-size: 14px;
+            }
+
+            .upi-section {
+                padding-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <a class="brand-name" href="#">Invenzo</a>
+        <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    </nav>
+
+    <!-- Payment Section -->
+    <div class="payment-container">
+        <div class="payment-box">
+            <h2>Payment for <span class="plan-name">{{ plan | capitalize }}</span> Plan</h2>
+            <p class="payment-text">Select your preferred payment method:</p>
+
+            <form action="{{ url_for('process_payment') }}" method="POST">
+                <input type="hidden" name="plan" value="{{ plan }}">
+
+                <button type="submit" name="payment_method" value="razorpay" class="payment-btn">Pay with Razorpay</button>
+                <button type="submit" name="payment_method" value="stripe" class="payment-btn">Pay with Stripe</button>
+                <button type="submit" name="payment_method" value="paypal" class="payment-btn">Pay with PayPal</button>
+                <button type="submit" name="payment_method" value="googlepay" class="payment-btn">Pay with Google Pay</button>
+            </form>
+
+            <!-- UPI QR Code Option -->
+            <div class="upi-section">
+                <p>Or scan the QR code to pay via UPI:</p>
+                <img src="{{ url_for('static', filename='upi_qr.png') }}" alt="UPI QR Code" class="upi-qr">
+                <p><strong>UPI ID:</strong> yourupi@bank</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

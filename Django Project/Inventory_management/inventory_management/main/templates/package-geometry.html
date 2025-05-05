@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Geometry - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Container styling */
+        .container {
+            margin-top: 50px;
+        }
+
+        /* Animation for rotating cards */
+        .animate-geometry {
+            animation: rotateIn 1s ease-in-out;
+        }
+
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Styling for the package card */
+        .package-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+
+        .package-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        /* Footer Styling */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Fixed navbar at the bottom */
+        .navbar-fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #6f42c1;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Intro Section Styling */
+        .intro-section {
+            margin-bottom: 50px;
+        }
+
+        .intro-section h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <!-- Introductory Section -->
+    <section class="container text-center intro-section">
+        <h1>Welcome to Package Geometry</h1>
+        <p>Explore different package geometries and calculate their volumes based on the dimensions and material used.</p>
+    </section>
+
+    <section class="container text-center animate-geometry">
+        <div class="row">
+            <!-- Package 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 10x10x10 cm</h5>
+                        <p>Weight: 1 kg</p>
+                        <p>Material: Cardboard</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(10, 10, 10, 'Cardboard')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 20x15x15 cm</h5>
+                        <p>Weight: 2.5 kg</p>
+                        <p>Material: Plastic</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(20, 15, 15, 'Plastic')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 30x20x20 cm</h5>
+                        <p>Weight: 5 kg</p>
+                        <p>Material: Wood</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(30, 20, 20, 'Wood')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 40x25x25 cm</h5>
+                        <p>Weight: 7 kg</p>
+                        <p>Material: Metal</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(40, 25, 25, 'Metal')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 50x30x30 cm</h5>
+                        <p>Weight: 10 kg</p>
+                        <p>Material: Glass</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(50, 30, 30, 'Glass')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card package-card">
+                    <div class="card-body">
+                        <h5>Dimensions: 60x40x40 cm</h5>
+                        <p>Weight: 15 kg</p>
+                        <p>Material: Concrete</p>
+                        <button class="btn btn-primary" onclick="calculateVolume(60, 40, 40, 'Concrete')">Calculate Geometry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Geometry Calculation -->
+    <div class="modal fade" id="geometryModal" tabindex="-1" aria-labelledby="geometryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="geometryModalLabel">Package Geometry Calculation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage">Calculating volume...</p>
+                    <p><strong>Material:</strong> <span id="material"></span></p>
+                    <p><strong>Volume:</strong> <span id="volume"></span> cm<sup>3</sup></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function calculateVolume(length, width, height, material) {
+            // Calculate volume of the package
+            const volume = length * width * height;
+            // Set the material and volume in the modal
+            document.getElementById('material').textContent = material;
+            document.getElementById('volume').textContent = volume;
+            // Show the modal with the calculation result
+            new bootstrap.Modal(document.getElementById('geometryModal')).show();
+        }
+    </script>
+</body>
+</html>

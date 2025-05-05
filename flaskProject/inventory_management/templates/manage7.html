@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Shipment | Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #666;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+            padding: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #4c4f56;
+            padding: 18px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .navbar-brand {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar .nav-link {
+            color: #fff;
+            font-size: 16px;
+            margin-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar .nav-link:hover {
+            color: #888;
+        }
+
+        .feedback-btn {
+            background-color: #66cc66;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-btn:hover {
+            background-color: #55aa55;
+        }
+
+        .track-btn {
+            background-color: #3498db;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .track-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack the cards vertically */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Invenzo</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('packing_shipping') }}">Track Shipment</a>
+            <a class="nav-link" href="{{ url_for('contact_us') }}">Feedback</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div style="margin-top: 100px;">
+        <h1>Post Shipment</h1>
+        <h2>Manage, Track and Provide Feedback for Shipments</h2>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Track Your Shipment</h3>
+                    <p>Enter the shipment tracking number to check real-time updates on your delivery status.</p>
+                    <a href="{{ url_for('packing_shipping') }}" class="track-btn">Track Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Leave a Feedback</h3>
+                    <p>Your opinion matters! Share your experience to help us improve our service.</p>
+                    <a href="{{ url_for('contact_us') }}" class="feedback-btn">Provide Feedback</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Delivery Confirmation</h3>
+                    <p>Confirm that your package has been delivered successfully to finalize the shipment process.</p>
+                    <button class="feedback-btn">Confirm Delivery</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>Request Refund</h3>
+                    <p>If you believe there was an issue with your delivery, you can request a refund here.</p>
+                    <a href="{{ url_for('sales_return') }}" class="feedback-btn">Request Refund</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

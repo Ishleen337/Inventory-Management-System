@@ -1,0 +1,195 @@
+
+/* Topic Page Styles */
+.topic-page {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.topic-page header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+.topic-page h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.addons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 30px;
+   
+}
+
+.addons-container h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+.addon-card {
+    perspective: 1000px; /* Essential for 3D flip */
+    height:200px;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInSlideUp 0.8s ease forwards; /* Animate on load */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* For hover */
+}
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Stagger the animations (optional) */
+.addon-card:nth-child(2n) {
+    animation-delay: 0.2s;
+}
+
+.addon-card:nth-child(3n) {
+    animation-delay: 0.4s;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease; /* Smooth flip */
+    transform-style: preserve-3d; /* Maintain 3D context */
+}
+
+.addon-card:hover .card-inner {
+    transform: rotateY(180deg); /* Flip on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide back during flip */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    transform: rotateY(180deg); /* Initial rotation for back */
+    background-color: #f0f0f0; /* Example back background */
+    /* Add any other styles for the back content here */
+}
+
+.card-front img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.card-back p {
+    color: black;
+    line-height: 1.6;
+}
+
+
+footer {
+    background-color: #121212;
+    color: white;
+    padding: 40px 60px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-top p, .footer-top label {
+    font-size: 14px;
+}
+
+.footer-top a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    width: 30%;
+}
+
+.footer-left img, .footer-right img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.certifications img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    width: 22%;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.footer-bottom a {
+    color: #00aaff;
+    text-decoration: none;
+}

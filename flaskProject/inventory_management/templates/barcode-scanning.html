@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanning - Invenzo</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/barcode-scanning.css') }}">
+ 
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .topic-page {
+            padding-top: 50px !important; /* Forcefully applies the gap */
+        }        
+
+        .table-container {
+            width: 100%;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .filter-input {
+            width: 15%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .filter-input:focus {
+            border-color: #007bff;
+            box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+                <strong class="brand-name">Invenzo</strong>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('order_management') }}">Order-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('inventory') }}">Inventory-Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('barcodes') }}">Barcode-Scanning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('integrations2') }}">Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('warehouse_management') }}">Warehouse-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('reports') }}">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="{{ url_for('team') }}">Talk to Us</a></li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end">
+                <a href="{{ url_for('home') }}" class="btn btn-outline-dark">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="topic-page text-center">
+        <div class="container-fluid">
+            <h2>Serial Number and Data Records</h2>
+            
+            <div class="filter-container">
+                <input type="text" class="filter-input" placeholder="Name" onkeyup="filterTable(0)">
+                <input type="text" class="filter-input" placeholder="Email" onkeyup="filterTable(1)">
+                <input type="text" class="filter-input" placeholder="Item ID" onkeyup="filterTable(2)">
+                <input type="text" class="filter-input" placeholder="Item Name" onkeyup="filterTable(3)">
+                <input type="text" class="filter-input" placeholder="Barcode Number" onkeyup="filterTable(4)">
+                <input type="text" class="filter-input" placeholder="Quantity" onkeyup="filterTable(5)">
+            </div>
+
+            <div class="table-container p-3">
+                <table class="table table-hover" id="barcodeTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Item ID</th>
+                            <th>Item Name</th>
+                            <th>Barcode Number</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.supplier_name }}</td>
+                            <td>{{ item.supplier_email }}</td>
+                            <td>{{ item.item_id }}</td>
+                            <td>{{ item.item_name }}</td>
+                            <td>{{ item.barcode_number }}</td>
+                            <td>{{ item.quantity }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function filterTable(columnIndex) {
+            var input, filter, table, tr, td, i, txtValue;
+            table = document.getElementById("barcodeTable");
+            tr = table.getElementsByTagName("tr");
+            input = document.getElementsByClassName("filter-input")[columnIndex];
+            filter = input.value.toUpperCase();
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[columnIndex];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

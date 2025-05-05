@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Order - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+    <style>
+        .card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight {
+            background-color: #fffae6;
+            transition: background-color 0.3s ease;
+        }
+
+        .highlight:hover {
+            background-color: #ffeb99;
+        }
+
+        .animated-card {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .btn-animate {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <section class="container mt-5 text-center">
+        <h1 class="mb-4">Sales Order Management</h1>
+        <p>Efficiently manage and track your sales orders with our intuitive interface. Keep a record of every order and its details.</p>
+
+        <div class="card mb-4 animated-card" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Order Information</h3>
+                <p>Each sales order is tracked and monitored, ensuring that everything is processed efficiently from start to finish.</p>
+                <div class="highlight p-3">
+                    <h4>Order ID: #SO-12345</h4>
+                    <p>Status: <span class="badge bg-success">Processing</span></p>
+                </div>
+                <a href="#" class="btn btn-primary btn-animate mt-3" data-bs-toggle="modal" data-bs-target="#orderDetailsModal">View Order Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Order Details -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details: #SO-12345</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Status: <span class="badge bg-success">Processing</span></h5>
+                    <p><strong>Customer Name:</strong> John Doe</p>
+                    <h6>Items:</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">Item A - Quantity: 2 - Price: ₹1,500</li>
+                        <li class="list-group-item">Item B - Quantity: 1 - Price: ₹1,100</li>
+                    </ul>
+                    <p><strong>Total Amount: ₹4,100</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="card mb-4 animated-card" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Key Features</h3>
+                <p>Track each step of the order lifecycle, from creation to completion. Our system ensures accuracy and fast processing.</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Real-time order updates</li>
+                    <li class="list-group-item">Customizable order statuses</li>
+                    <li class="list-group-item">Automated order confirmation and tracking</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

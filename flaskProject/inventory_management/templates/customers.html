@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/customers.css')}}">
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <section class="container mt-5 text-center">
+        <div class="section-headings">
+            <h1>A satisfied customer is our best reward</h1>
+            <p>Read some of our customer success stories and how they've seen a positive impact on their business using
+                Zoho Inventory over other inventory solutions.</p>
+        </div>
+
+        <div class="container">
+            <div class="testimonials">
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We have been able to simplify our in-house inventory management with increased efficiency
+                            and flexibility across the stock distribution process, and this has helped us keep our
+                            captains engaged using Invenzo. At Rapido, we take immense pride in our user
+                            experience framework, supported by the Invenzo ecosystem."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Priya Balna</h3>
+                            <p>Senior Manager - Finance, Rapido Bike - India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"When I thought of starting a new business initiative during the pandemic, I had no time for
+                            making business plans or SWOT analyses. But one thing I have to admit is that Invenzo
+                            is one of the easiest inventory management solutions to implement that I have come across,
+                            and onboarding with the Invenzo Team was excellent. They really helped me build the right
+                            platform for my business."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Shaji Anandan</h3>
+                            <p>CMO - Promoter, Santhi UK, UK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"In the past, we tried different software applications for inventory management, but they
+                            only made the process more complicated. However, three years ago, we made the switch to
+                            Invenzo,
+                            which turned out to be a great decision. Invenzo has efficiently helped us
+                            handle inventory and customers, automating various business processes, especially inventory
+                            reports and online store sales. We also find it easy to navigate. We utilize Invenzo Books
+                            for
+                            accounting, too, which has been incredibly helpful for our organization."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Mahesh Kumar K</h3>
+                            <p>Accounts Executive Arthur's Food Company Pvt. Ltd., India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We were introduced to Invenzo through Invenzo Books, which we've always used for our
+                            accounting needs. At our event management business, we were able to scale the business
+                            efficiently with the flexibility of Invenzo and its APIs. Their support was
+                            phenomenal and the team constantly listened for feedback and continually comes out with new
+                            features. We will surely explore other great apps in the ever-expanding Invenzo ecosystem to
+                            help scale our business."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Jason Lee</h3>
+                            <p>General Manager, Party Mojo Pte. Ltd., Singapore</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Invenzo has meshed business operations into a framework of cloud-based apps. Every action
+                            you
+                            want to take to grow a business can be digitized and Zoho has laid the foundation for that.
+                            Invenzo has helped me bring down our inventory control costs and the complexity of
+                            digital transformation in the hardware/industrial supply industry. I highly recommend their
+                            solution."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Peter Jackson/h3>
+                                <p>Managing Partner,
+
+                                    Miller Industrial, USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"At Caple Industrial Solutions, we integrated multiple branches, their GST numbers,
+                            warehouses, brands, categories, SKUs, and their serial numbers with Books, CRM, and Service
+                            Desk. Thanks to Invenzo, with just 50 people, we are working like a multinational."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Satyan Thukral</h3>
+                            <p>CEO,
+
+                                CAPLE Industrial Solutions, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Invenzo is one of the most easy-to-implement inventory management solutions we have
+                            come across, with frequent updates that add more features with each iteration. It helps us
+                            so much with our Shopify sales management. The collaboration functionalities of Invenzo
+                            were extremely helpful during COVID-19, helping us go remote in no time."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Ashish Verma</h3>
+                            <p>Operations & Logistics Manager,
+
+                                BOHECO, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We have been using Invenzo for a couple of years now, and it has been amazing for us
+                            to collect all of our online and offline sales in one place. It also synchronizes perfectly
+                            across our accounting and marketing systems. The Invenzo Finance suite of products has
+                            turbocharged our ability to track real-time data about our business. Having all of our
+                            departments seamlessly integrated together allows us to respond quickly and make the right
+                            decisions every time."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Adam Petyt</h3>
+                            <p>Director,
+
+                                Element Packaging LTD, UK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We have been using Invenzo since 2016, and it has been a great addition to our suite
+                            of Invenzo products. Invenzo allows us to manage multiple inventories at multiple
+                            warehouses across the continent and globe. Invenzo has also simplified shipment
+                            tracking since we can add the tracking details directly to our customers' orders."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Jim Aguilera</h3>
+                            <p>Chief Operating Officer,
+
+                                Snakebyte Inc., USA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Over the years we have used several software applications to manage our inventory, but all
+                            they did was unnecessarily complicate the process. We recently switched to Invenzo,
+                            and it seems to be a very good decision. Invenzo has helped us manage our inventory
+                            and customers efficiently. It has helped us automate many of our business processes,
+                            including online store sales. It's also effortless to navigate, and its seamless integration
+                            with our other Invenzo products has proven to be very helpful."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Sharad Nawalgaria</h3>
+                            <p>Director,
+
+                                Fida India, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We are a B2B supplier of safety gear and consumables. With Invenzo, we have
+                            streamlined order management and reduced order processing times. The seamless integration
+                            between Invenzo and Invenzo Books keeps our finances up to date instantly. The best part
+                            of the deal, however, is that the Invenzo team takes our feedback seriously and continuously
+                            improves their products and services."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Ben Cox</h3>
+                            <p>Director,
+
+                                Badger Australia, Australia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Invenzo makes it easy for me to control my business finances and inventory. The system is
+                            intuitive and easy to navigate, and it's fantastic that everything is cloud-based. I've been
+                            able to set up accounts exactly the way I like and fine tune my inventory so I can track
+                            what sells best, and adjust my purchases accordingly. I can even invoice customers from my
+                            phone if needed! The reporting function is fabulous. As a start up business owner, it
+                            reassures me that I can be completely in control of my business growth and don't have to
+                            rely on external accountants for a complete overview."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Willa Latham</h3>
+                            <p>Owner,
+
+                                Gentle Rattle Of China, UK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"At Noorhan Auto, being an auto parts company, we deal with thousands of car part numbers.
+                            Sometimes managing so many SKUs can be a bit complex. By using Invenzo, we have been
+                            able to enhance our efficiency, make informed decisions, and focus on growing our business.
+                            The integrations with Invenzo Books and Invenzo Analytics help with reordering and
+                            stockouts. The
+                            Composite Items option also helps us manage our semi manufacturing business of lubricants.
+                            We highly recommend Invenzo for businesses seeking to streamline their operations and
+                            improve inventory control."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Ali Asgar Saeed</h3>
+                            <p>Managing Partner,
+
+                                Noorhan General Trading LLC, UAE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"We knew that to be more efficient and save time, we had to go for an official programme that
+                            could help to organize the customers, organize the stock and invoices, and also keep track
+                            of all the accounting. Invenzo met all the requirements."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Jean-Pol</h3>
+                            <p>Director,
+
+                                Freediving Planet, Hong Kong & Philippines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Earlier, we had a lot of problems managing our customers, stock, and invoice. Due to this,
+                            we were losing our customer's trust, missing the opportunities to expand our business, we
+                            were not able to follow up with prospects, and our stock records were not accurate because
+                            most of it was maintained in Excel. With Invenzo, managing all of these is very easy.
+                            We have transformed our weaknesses to strength, now workers perform better, we've a better
+                            reporting system and the customers also appreciate us for quick responses."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Mihran Mkhitaryan</h3>
+                            <p>General Manager,
+
+                                HGA Machinery, Tanzania</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The Invenzo app has been really helpful in tracking the movement of key SKUs and the
+                            team has been very kind in providing us with solutions to our queries."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Team OYO Homes</h3>
+                            <p>OYO Homes, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I had initially tried Quick Books paired with a third-party inventory module, but I got
+                            tired of it quickly and had to drop it. Invenzo wins over competitors hands down! It handles
+                            most day to day business processes of any product/service business with ease. The UI is very
+                            clean and easy to use. It is very unlikely that you would come across software bugs."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Vallabhan C S</h3>
+                            <p>Digital and online sales,
+
+                                Kaadoogames, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Invenzo has been a great addition to managing our small business across North
+                            America. Managing stocks and returns across the multiple warehouses has been easier than
+                            expected. What stands out for us the most is when there is an issue or an area that needs to
+                            be addressed. The support team is extremely responsive and being a business owner this sort
+                            of communication is important."</p>
+                    </div>
+                    <div class="testimonial-author"> 
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Patrick Fletch</h3>
+                            <p>Director of Business Development,
+
+                                Alloygator Limited, USA and Canada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"After a few months of searching for a great cloud-based solution to manage my books and
+                            inventory, I came across Invenzo. It had everything I needed to run an import and
+                            distribution
+                            business spread across several warehouses and stores. The experience has been seamless, the
+                            support has been great, and best of all, I learned it all by myself with no tutorials. It's
+                            extremely user-friendly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Omar Fattah</h3>
+                            <p>CEO and Founder,
+
+                                Holix Watersports, Egypt</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Invenzo is a very customizable software. We can make any changes in the app using the
+                            automations and custom fields within the app. We can track any number of units of the
+                            products that we purchase and sell to the last units. Managing fulfillment for orders got
+                            faster, too. It's also easy to generate essential reports for our business in the system's
+                            built-in reports module. There's amazing support from their team, too."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h3>Atheeque Ahmed</h3>
+                            <p>General Manager,
+
+                                TMM Paper Group, Bahrain</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="love-zoho">
+                <h2>Love Invenzo?</h2>
+                <div class="share-buttons">
+                    <button>Spread the word</button>
+                    <button>Share your story</button>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-left">
+                <p>Send us an <a href="#">Email</a> (or) India - 18005726671 (Monday - Friday 9:00AM to 7:00PM)</p>
+                <label for="edition">Select Edition:</label>
+                <select id="edition">
+                    <option>🇮🇳 India</option>
+                    <option>🇺🇸 USA</option>
+                    <option>🇬🇧 UK</option>
+                </select>
+                <p>Available On:</p>
+                <img src="app-store.png" alt="App Store">
+                <img src="google-play.png" alt="Google Play">
+            </div>
+            <div class="footer-middle">
+                <p>Choose Privacy. Choose Invenzo.</p>
+                <div class="certifications">
+                    <img src="iso.png" alt="ISO Certified">
+                    <img src="soc2.png" alt="SOC2 Certified">
+                    <img src="gdpr.png" alt="GDPR Compliant">
+                </div>
+            </div>
+            <div class="footer-right">
+                <p>Connect with Us:</p>
+                <a href="#"><img src="twitter.png" alt="X"></a>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="{{url_for('order_management')}}">Order Management Software</a></li>
+                    <li><a href="{{url_for('inventory')}}">Inventory Tracking</a></li>
+                    <li><a href="{{url_for('warehouse_management')}}">Warehouse Management</a></li>
+                    <li><a href="{{url_for('reports')}}">Inventory Reports</a></li>
+                    <li><a href="{{url_for('features')}}">All Features</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">E-commerce Inventory</a></li>
+                    <li><a href="#">Amazon Inventory</a></li>
+                    <li><a href="#">Shopify Inventory</a></li>
+                    <li><a href="#">Retail Inventory</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{url_for('pricing')}}">Pricing</a></li>
+                    <li><a href="{{url_for('integrations')}}">Integrations</a></li>
+                    <li><a href="{{url_for('customers')}}">Customers</a></li>
+                    <li><a href="#">Best Inventory Software</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Help Documentation</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Invenzo Corporation Pvt. Ltd. All Rights Reserved.</p>
+            <p>
+                <a href="{{ url_for('security') }}">Security</a> | 
+                <a href="{{ url_for('terms_of_service') }}">Terms of Service</a> | 
+                <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> | 
+                <a href="{{ url_for('cookie_policy') }}">Cookie Policy</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

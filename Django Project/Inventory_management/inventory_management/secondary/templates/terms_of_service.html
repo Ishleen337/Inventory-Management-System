@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            font-size: 1.0em;
+        }
+
+        .navbar {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navbar a {
+            color: white;
+            font-size: 1.0em;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-left: 20px;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #4CAF50;
+            font-size: 1.8em;
+        }
+
+        header p {
+            color: #777;
+            font-size: 1em;
+        }
+
+        .terms-content {
+            margin-top: 20px;
+        }
+
+        .terms-content h2 {
+            color: #00796b;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .terms-content p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+        }
+
+        footer p {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="{% url 'terms_of_service' %}">Terms of Service</a>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Terms of Service</h1>
+            <p>Welcome to our service. Please read the following terms and conditions carefully before using our platform.</p>
+        </header>
+
+        <section class="terms-content">
+            <h2>1. Introduction</h2>
+            <p>These terms of service govern your use of our platform, whether you are a registered user or a guest...</p>
+            
+            <h2>2. User Responsibilities</h2>
+            <p>As a user, you are responsible for maintaining the confidentiality of your account credentials...</p>
+            
+            <h2>3. Restrictions</h2>
+            <p>You agree not to engage in any activity that could disrupt, harm, or impair the functionality of our services...</p>
+            
+            <h2>4. Privacy and Data Protection</h2>
+            <p>We value your privacy and are committed to protecting your personal data...</p>
+
+            <h2>5. Limitation of Liability</h2>
+            <p>We will not be liable for any direct, indirect, incidental, special, consequential, or punitive damages...</p>
+
+            <h2>6. Termination</h2>
+            <p>We may suspend or terminate your account at our discretion...</p>
+        </section>
+
+        <footer>
+            <p>© 2025 Inventory Management System</p>
+        </footer>
+    </div>
+</body>
+</html>

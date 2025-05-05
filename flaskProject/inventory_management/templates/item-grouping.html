@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Grouping and Bundling - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <section class="container mt-5 text-center">
+        <h1>Item Grouping and Bundling</h1>
+        <p>Item Grouping and Bundling is an advanced feature designed to enhance the way you manage your inventory.
+            This feature allows you to categorize and combine items with similar attributes into groups and bundles,
+            making it easier to track stock, customize offers, and improve sales efficiency. Whether you're in retail, 
+            e-commerce, or wholesale, this functionality will streamline your operations and help you get the most out of
+            your inventory.</p>
+        
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Why Item Grouping and Bundling?</h3>
+                <p>Grouping items by category or common features can simplify your workflow by allowing you to monitor stock 
+                    levels, identify trends, and manage orders more efficiently. Bundling items together creates tailored packages 
+                    that cater to customer needs and encourage bulk purchases, leading to higher sales.</p>
+                
+                <p>For instance, if you are selling electronics, you could group products like chargers, earphones, and power banks 
+                    together for easier stock management. Bundling them into promotional packages (e.g., “Complete Mobile Accessory Kit”) 
+                    can boost your sales during special offers.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Features of Item Grouping and Bundling</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Easy categorization: Group items based on similar attributes (size, color, type, etc.).</li>
+                    <li class="list-group-item">Customizable bundles: Combine items into bundles for special sales or promotions.</li>
+                    <li class="list-group-item">Improved stock management: Monitor stock levels of grouped items easily.</li>
+                    <li class="list-group-item">Sales optimization: Create tailored offers to encourage larger purchases.</li>
+                    <li class="list-group-item">Track item performance: Analyze trends for each group and bundle to improve sales strategies.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>How It Works</h3>
+                <p>The process of item grouping and bundling involves selecting products and categorizing them based on common
+                    attributes like size, color, or type. Once grouped, you can create bundles for customers, offering special 
+                    prices or promotions for specific combinations of products.</p>
+
+                <p>In your inventory system, once these groupings and bundles are created, you can easily adjust pricing, stock 
+                    levels, and product availability based on the bundled or grouped items. This also allows you to track 
+                    performance per group and make informed decisions on what bundles are performing best.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Use Cases</h3>
+                <p>This feature is incredibly beneficial for various industries. Here are a few examples:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Retail: Group similar clothing items, shoes, or accessories together for better organization.</li>
+                    <li class="list-group-item">E-Commerce: Bundle complementary items together (e.g., phones + cases + screen protectors).</li>
+                    <li class="list-group-item">Wholesale: Group products with similar functions to make bulk purchasing easier.</li>
+                    <li class="list-group-item">Subscription boxes: Create custom bundles of products for a specific target audience or theme.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Get Started with Item Grouping and Bundling</h3>
+                <p>Getting started with item grouping and bundling is easy. Follow these simple steps:</p>
+                <ol>
+                    <li>Create categories for your items based on their attributes.</li>
+                    <li>Select the items you want to group together.</li>
+                    <li>Combine them into bundles for promotions or special offers.</li>
+                    <li>Set the pricing and stock levels for each group or bundle.</li>
+                    <li>Track the performance of your groups and bundles to optimize sales.</li>
+                </ol>
+                <p>Start using this feature today to enhance your inventory management and maximize your sales potential!</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Optional Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

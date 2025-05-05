@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Update Order data</title>
+
+    <!-- ✅ Bootstrap CSS (Add this) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- ✅ Your Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/order_management.css') }}">
+</head>
+<style>
+    /* ✅ General Page Styling */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f7f9fc, #e3f2fd);
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ✅ Form Container */
+    .container {
+        max-width: 800px;
+        width: 100%;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        margin-top: 40px;
+        text-align: center;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #bdc3c7;
+        padding: 12px;
+    }
+
+    .button {
+        background-color: #45bee3;
+        border: none;
+        font-weight: bold;
+        padding: 12px 25px;
+        text-transform: uppercase;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+        width: 100%;
+    }
+
+    .button:hover {
+        background-color: #357ab7;
+    }
+
+    /* ✅ Responsive Fix */
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+            <strong class="brand-name">Invenzo</strong>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('order_management') }}">Order-Management</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('inventory') }}">Inventory-Tracking</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('barcodes') }}">Barcode-Scanning</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('integrations2') }}">Integrations</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('warehouse_management') }}">Warehouse-Managment</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('reports') }}">Reports</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="{{ url_for('team') }}">Talk to Us</a></li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <a href="{{ url_for('home') }}" class="btn btn-outline-dark">Home</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- ✅ Topic Content -->
+            <div class="container">
+                <h2> Update Order Data</h2>
+               
+                <form action="{{url_for('update_item',id=item.id)}}" method="POST">
+
+                    <div class="col-12">
+                        <label for="item-id" class="form-label">Item ID:</label>
+                        <input type="number" id="item-id" name="item_id" class="form-control" value="{{item.id}}" required>
+                    </div>
+
+                    <h3>Item Information</h3>
+                    <div class="col-12">
+                        <label for="item-name" class="form-label">Item Name:</label>
+                        <input type="text" id="item-name" name="item_name" class="form-control"  value="{{item. item_name}}" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="item-category" class="form-label">Category:</label>
+                        <select id="item-category" name="item_category" class="form-control" required>
+                            <option value="" disabled>Select a Category</option>
+                            {% set categories = [
+                                "Accessories & Jewelry", "Alcohol & Spirits", "Arts & Crafts Supplies", "Automotive Parts",
+                                "Baby Products", "Baking Supplies", "Beauty & Personal Care", "Beverages & Soft Drinks",
+                                "Books & Stationery", "Cleaning & Household Items", "Clothing & Apparel", "Computers & Accessories",
+                                "Construction Materials", "Dairy Products", "Drones & RC Vehicles", "Electrical Components",
+                                "Electronics", "Event & Party Supplies", "Fitness Equipment", "Food & Beverages", "Frozen Foods",
+                                "Furniture", "Gaming & Consoles", "Gardening Tools & Supplies", "Grocery & Packaged Foods",
+                                "Health & Wellness", "Home Appliances", "HVAC Equipment", "Industrial Equipment",
+                                "Kitchen Appliances", "Lighting & Fixtures", "Medical Supplies", "Mobile Phones & Tablets",
+                                "Music & Instruments", "Office Supplies", "Outdoor & Camping Gear", "Pet Supplies",
+                                "Pharmaceuticals", "Plumbing Supplies", "Safety & Security Equipment", "Shoes & Footwear",
+                                "Smart Home Devices", "Solar & Renewable Energy", "Sports Equipment", "Toys & Games",
+                                "Travel & Luggage", "Warehouse Equipment"
+                            ] %}
+                    
+                            {% for category in categories|sort %}
+                                <option value="{{ category }}" {% if item.item_category == category %}selected{% endif %}>
+                                    {{ category }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                                 
+                    <div class="col-12">
+                        <label for="quantity" class="form-label">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control"  value="{{item.quantity}}" oninput="calculateTotalCost()" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="cost-per-unit" class="form-label">Cost per Unit:</label>
+                        <input type="number" id="cost-per-unit" name="cost_per_unit" class="form-control" step="0.01"  value="{{item.cost_per_unit}}" oninput="calculateTotalCost()" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="total-cost" class="form-label">Total Cost:</label>
+                        <input type="number" id="total-cost" name="total_cost" class="form-control" step="0.01"  value="{{item.total_cost}}" required>
+                    </div>
+
+
+                    <h3>Supplier Information</h3>
+                    <div class="col-12">
+                        <label for="supplier-name" class="form-label">Supplier Name:</label>
+                        <input type="text" id="supplier-name" name="supplier_name" class="form-control"  value="{{item.supplier_name}}" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="supplier-email" class="form-label">Supplier Email:</label>
+                        <input type="email" id="supplier-email" name="supplier_email" class="form-control"  value="{{item.supplier_email}}" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="supplier-phone" class="form-label">Supplier Phone Number:</label>
+                        <input type="text" id="supplier-phone" name="supplier_phone" class="form-control"  value="{{item. supplier_phone}}" required>
+                    </div>
+
+
+                    <h3>Order Status</h3>
+                    <div class="col-12">
+                        <label for="order-status" class="form-label">Order Status:</label>
+                        <select id="order-status" name="order_status" class="form-control"  value="{{item. order_status}}" required>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="notes" class="form-label">Special Instructions or Notes:</label>
+                        <textarea id="notes" name="notes" class="form-control"  value="{{item. notes}}"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="button btn-primary">Submit Order</button>
+                    </div>
+                </form>
+            </div>
+    <script>
+        function calculateTotalCost() {
+            const quantity = document.getElementById('quantity').value;
+            const costPerUnit = document.getElementById('cost-per-unit').value;
+            const totalCost = quantity * costPerUnit;
+            document.getElementById('total-cost').value = totalCost.toFixed(2);
+        }
+
+        // ✅ Make the dropdown searchable
+    document.addEventListener("DOMContentLoaded", function () {
+        $('#item-category').select2({
+            placeholder: "Select a Category",
+            allowClear: true
+        });
+    });
+
+    </script>
+
+    <!-- ✅ Include Select2 for searchable dropdown -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+</body>
+
+</html>
+
+

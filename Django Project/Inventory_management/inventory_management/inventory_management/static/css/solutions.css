@@ -1,0 +1,333 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    animation: fadeInBody 2s ease-out; /* Body fade-in animation */
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styling */
+section {
+    padding: 50px 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 80px;
+    animation: slideUp 1s ease-out; /* Section slide-up effect */
+}
+
+h1 {
+    margin-top: 80px;
+    font-size: 2.5rem;
+    color: #444;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Target the specific ul inside the section */
+section ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+section ul li {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: scaleUp 0.6s ease-out; /* Item scale-up animation */
+}
+
+section ul li a {
+    text-decoration: none;
+    color: #007b5e;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+section ul li a:hover {
+    color: #005e45;
+    transform: scale(1.05);
+}
+
+section ul li:hover {
+    transform: translateY(-5px);
+    background-color: #e7f7f1;
+}
+
+/* Container1 styling */
+.container1 {
+    margin-top: 50px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.container1 h2 {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.container1 p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.container1 a input {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container1 a input:hover {
+    background-color: #218838;
+}
+
+/* Image blocks styling */
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-out;
+}
+
+.image div {
+    width: 50%;
+    padding: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+.image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+}
+
+.image h4 {
+    font-size: 1.7rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.image p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Trial section */
+.trial {
+    margin-top: 60px;
+    text-align: center;
+    padding: 30px;
+    background-color: #e9f7ef;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.trial h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.trial input[type="register"] {
+    background-color: #ffc107;
+    color: #333;
+    padding: 12px 25px;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+.trial input[type="register"]:hover {
+    background-color: #e0a800;
+}
+
+/* Cards section */
+.cards4 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cards4 div {
+    width: 30%;
+    padding: 20px;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.cards4 div:hover {
+    transform: translateY(-10px);
+}
+
+.cards4 h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.cards4 p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.cards4 a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #28a745;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cards4 a:hover {
+    color: #218838;
+}
+
+/* Animation for fadeIn, slideIn, scaleUp, fadeInBody, fadeInUp, and slideUp */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cards4 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards4 div {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    /* For small screens (mobile view), change to a single column */
+    section ul {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    section ul li {
+        margin: 10px 0;
+        text-align: left;
+    }
+}
+
+.imgs {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.imgs:hover {
+    transform: scale(1.05);
+}

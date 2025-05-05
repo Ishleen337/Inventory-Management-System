@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Barcode Scanning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f7;
+            color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #666;
+            text-align: center;
+            animation: fadeInText 2s ease-out;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 1000px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Scanning Box */
+        .scan-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .scan-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .scan-box h3 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .scan-box input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border 0.3s ease;
+        }
+
+        .scan-box input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .scan-box button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .scan-box button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Dynamic Product Info */
+        .product-info {
+            display: none;
+            background: #fff;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .product-info h4 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .scan-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Invenzo</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link talk-to-us" href="{{ url_for('contact_us') }}">Talk to Us</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div style="margin-top: 150px;">
+        <h1>Dynamic Barcode Scanning</h1>
+        <h2>Scan your products to get real-time inventory updates!</h2>
+
+        <div class="container">
+            <!-- Barcode Scanning Form -->
+            <div class="scan-box">
+                <h3>Scan or Enter Barcode</h3>
+                <input type="text" id="barcodeInput" placeholder="Scan or Enter Barcode" autofocus>
+                <button id="scanButton">Scan</button>
+            </div>
+
+            <!-- Dynamic Product Info -->
+            <div class="product-info" id="productInfo">
+                <h4>Product Details</h4>
+                <p><strong>Product Name:</strong> <span id="productName"></span></p>
+                <p><strong>Stock Available:</strong> <span id="stockAvailable"></span></p>
+                <p><strong>Price:</strong> $<span id="productPrice"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('scanButton').addEventListener('click', function () {
+            let barcode = document.getElementById('barcodeInput').value;
+            if (barcode) {
+                // Simulate fetching product info
+                simulateProductInfo(barcode);
+            }
+        });
+
+        // Simulated product information based on barcode
+        function simulateProductInfo(barcode) {
+            let productInfo = {
+                '123456': {
+                    name: 'Product A',
+                    stock: 50,
+                    price: 19.99
+                },
+                '789101': {
+                    name: 'Product B',
+                    stock: 150,
+                    price: 29.99
+                },
+                '111213': {
+                    name: 'Product C',
+                    stock: 75,
+                    price: 9.99
+                }
+            };
+
+            // Check if product exists in our mock data
+            if (productInfo[barcode]) {
+                let product = productInfo[barcode];
+                document.getElementById('productName').innerText = product.name;
+                document.getElementById('stockAvailable').innerText = product.stock;
+                document.getElementById('productPrice').innerText = product.price;
+
+                // Display product info with animation
+                document.getElementById('productInfo').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('productInfo').style.opacity = 1;
+                }, 200);
+            } else {
+                alert('Product not found!');
+                document.getElementById('productInfo').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

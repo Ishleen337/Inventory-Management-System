@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- ✅ Your Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resources.css') }}">
+
+    <style>
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #000;
+        }
+
+        /* Features Section */
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            color: #000;
+            margin-top: 40px;
+        }
+
+        section.container1 {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            color: #000;
+        }
+
+        section.container1 p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        /* Card Styling */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .container .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%; /* Make sure cards take up 30% of the container width */
+            box-sizing: border-box; /* To include padding in the width calculation */
+        }
+
+        .container .card .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .container .card h3 {
+           font-size: 1.8em;
+           color: #000;
+        }
+
+        .container .card p {
+           font-size: 1em;
+           color: #6c757d;
+        }
+
+        .container .card .btn {
+           background-color: #000;
+           color: #fff;
+           border: none;
+           padding: 10px 20px;
+           text-transform: uppercase;
+        }
+
+        .container .card .btn:hover {
+           background-color: #333;
+        }
+
+        /* Trial and Contact Sections */
+        .trial input {
+            padding: 12px 20px;
+            font-size: 1em;
+            margin-right: 10px;
+            border: none;
+            background-color: #000;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .trial input:hover {
+            background-color: #333;
+        }
+
+        .cards4 {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .cards4 div {
+            width: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cards4 div h3 {
+            color: #000;
+            font-size: 1.8em;
+        }
+
+        .cards4 div p {
+            font-size: 1.1em;
+            color: #6c757d;
+        }
+
+        .cards4 div a {
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cards4 div a:hover {
+            color: #ffd700;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container .card {
+                width: 48%;
+            }
+
+            .cards4 div {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container .card {
+                width: 100%;
+            }
+
+            .cards4 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cards4 div {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            section.container1 {
+                padding: 20px;
+            }
+
+            .trial input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .cards4 div h3 {
+                font-size: 1.5em;
+            }
+
+            .cards4 div p {
+                font-size: 1em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <h1>Resources</h1>
+    <section class="container1 text-center">
+        <p>Discover all the powerful resources that make Invenzo the best inventory management solution.</p>
+    </section>
+    <div class="container">
+        <div class="card">
+            <div class="icon">📖</div>
+            <h3>Help Documentation</h3>
+            <p>Gain in-depth knowledge of all the features, customization, and implementation procedures.</p>
+            <a href="/help-documentation" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="card">
+            <div class="icon">❓</div>
+            <h3>FAQ</h3>
+            <p>Our Knowledge Base has detailed answers to common questions about Invenzo Inventory.</p>
+            <a href="/faq" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="card">
+            <div class="icon">💬</div>
+            <h3>Forums</h3>
+            <p>Participate in discussions on various topics, articles, and updates from the Invenzo Inventory team.</p>
+            <a href="/forums" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="card">
+            <div class="icon">📝</div>
+            <h3>Blogs</h3>
+            <p>Keep up with the latest developments and features at Invenzo Inventory. Get useful tips and tricks.</p>
+            <a href="/blogs" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Business Guides</h3>
+            <p>Get helpful information on how you can manage your finances and grow your business successfully.</p>
+            <a href="/essential-business-guides" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="card">
+            <div class="icon">📅</div>
+            <h3>Webinars</h3>
+            <p>Join us for weekly webinar sessions to learn more about Invenzo Inventory. Register your place now.</p>
+            <a href="/webinar" class="btn btn-primary">Register</a>
+        </div>
+    </div>
+
+    <div class="trial">
+        <h2>A complete inventory management application for your business</h2>
+        <input type="button" value="Try 14-day free trial">
+        <input type="button" value="Explore demo account">
+    </div>
+
+    <div class="cards4">
+        <div>
+            <h3>Reach out to us </h3>
+            <p>Have a question? Mail us at <a href="mailto:khushboo2006june@gmail.com">khushboo2006june@gmail.com</a></p>
+            <a href="/reach-out-to-us" class="btn btn-primary">Contact Us</a>
+        </div>
+        <div>
+            <h3>Register for a webinar</h3>
+            <p>Join us for a weekly webinar session to learn more about Invenzo. Register your place now.</p>
+            <a href="/register" class="btn btn-primary">Register</a>
+        </div>
+        <div>
+            <h3>Quick reference</h3>
+            <p>Explore our detailed user guide and knowledge base to learn about Invenzo. Participate in our blogs and forums.</p>
+            <a href="/integrations" class="btn btn-primary">Learn More</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-left">
+                <p>Send us an <a href="#">Email</a> (or) India - 18005726671 (Monday - Friday 9:00AM to 7:00PM)</p>
+                <label for="edition">Select Edition:</label>
+                <select id="edition">
+                    <option>🇮🇳 India</option>
+                    <option>🇺🇸 USA</option>
+                    <option>🇬🇧 UK</option>
+                </select>
+                <p>Available On:</p>
+                <img src="app-store.png" alt="App Store">
+                <img src="google-play.png" alt="Google Play">
+            </div>
+            <div class="footer-middle">
+                <p>Choose Privacy. Choose Invenzo.</p>
+                <div class="certifications">
+                    <img src="iso.png" alt="ISO Certified">
+                    <img src="soc2.png" alt="SOC2 Certified">
+                    <img src="gdpr.png" alt="GDPR Compliant">
+                </div>
+            </div>
+            <div class="footer-right">
+                <p>Connect with Us:</p>
+                <a href="#"><img src="twitter.png" alt="X"></a>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="youtube.png" alt="YouTube"></a>
+            </div>
+        </div>
+    
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="{{url_for('order_management')}}">Order Management Software</a></li>
+                    <li><a href="{{url_for('inventory')}}">Inventory Tracking</a></li>
+                    <li><a href="{{url_for('warehouse_management')}}">Warehouse Management</a></li>
+                    <li><a href="{{url_for('reports')}}">Inventory Reports</a></li>
+                    <li><a href="{{url_for('features')}}">All Features</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="#">E-commerce Inventory</a></li>
+                    <li><a href="#">Amazon Inventory</a></li>
+                    <li><a href="#">Shopify Inventory</a></li>
+                    <li><a href="#">Retail Inventory</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{url_for('pricing')}}">Pricing</a></li>
+                    <li><a href="{{url_for('integrations')}}">Integrations</a></li>
+                    <li><a href="{{url_for('customers')}}">Customers</a></li>
+                    <li><a href="#">Best Inventory Software</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Help Documentation</a></li>
+                    <li><a href="#">API Docs</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Invenzo Corporation Pvt. Ltd. All Rights Reserved.</p>
+            <p>
+                <a href="{{ url_for('security') }}">Security</a> | 
+                <a href="{{ url_for('terms_of_service') }}">Terms of Service</a> | 
+                <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> | 
+                <a href="{{ url_for('cookie_policy') }}">Cookie Policy</a>
+            </p>
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

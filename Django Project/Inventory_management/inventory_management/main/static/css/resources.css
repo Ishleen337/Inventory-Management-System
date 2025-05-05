@@ -1,0 +1,257 @@
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px; /* Space below the heading */
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 20px; /* Space above the heading */
+}
+.container1 {
+    text-align: center; /* Center the paragraph */
+    margin-bottom: 20px;
+    padding: 20px; /* Add some padding */
+}
+.container1 p{
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #151616;
+    margin: 0; /* Remove default paragraph margins */
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+
+}
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+h3 {
+    margin: 10px 0;
+}
+p {
+    font-size: 16px; /* Increased font size */
+    color: #555;
+    line-height: 1.5; /* Improved line height for readability */
+}
+a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+a:hover {
+    color: black;
+}
+.container1 h1{
+    margin: auto;
+    font-weight: bold;
+    
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #0056b3;
+
+}
+
+input[type="register"] {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+}
+input[type="register"]:hover{
+    background-color: #2d4868; 
+
+}
+
+.trial{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    text-align: center; /* Center the buttons */
+
+}
+
+/* Cards Section */
+.cards4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Spacing between cards */
+    padding: 20px; /* Padding around the grid */
+    max-width: 1200px; /* Optional max-width for the container */
+    margin: 20px auto; /* Center the container horizontally */
+    margin-top: 50px;
+}
+
+.cards4 > div { /* Target direct children of cards4 */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center content within each card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.cards4 > div:hover {
+    transform: translateY(-5px); /* Move slightly up on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+.cards4 h3 {
+    margin-bottom: 10px;
+    color: #333; /* Darker heading color */
+}
+
+.cards4 p {
+    color: #666; /* Slightly lighter text color */
+    margin-bottom: 15px;
+    line-height: 1.5; /* Improved line height */
+
+}
+
+/* Cards Section */
+.cards4 a {
+    display: inline-block; /* Make the link a block element for better styling */
+    padding: 8px 16px;
+    background-color: black; /* Button color set to black */
+    color: white !important; /* Force text color to be white */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    margin-top: 10px; /* Space above the link/button */
+}
+
+.cards4 a:hover {
+    background-color: #333; /* Darker background color on hover */
+    color: white !important; /* Force text color to stay white on hover */
+}
+
+.cards4 a:active {
+    background-color: #333; /* Darker background color on click */
+    color: white !important; /* Force text color to stay white on click */
+}
+
+
+/* Responsive adjustments (optional) */
+@media (max-width: 768px) {
+    .cards4 {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust column widths */
+    }
+}
+
+
+footer {
+    background-color: #121212;
+    color: white;
+    padding: 40px 60px;
+    font-family: Arial, sans-serif;
+    width: 100%; /* Ensure footer takes full width */
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+}
+
+.footer-top p, .footer-top label {
+    font-size: 14px;
+}
+
+.footer-top a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.footer-left, .footer-middle, .footer-right {
+    width: 30%;
+}
+
+.footer-left img, .footer-right img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.certifications img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    width: 22%;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.footer-bottom a {
+    color: #00aaff;
+    text-decoration: none;
+}
+

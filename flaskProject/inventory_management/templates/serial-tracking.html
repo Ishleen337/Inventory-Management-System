@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial and Batch Tracking - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <section class="container mt-5 text-center">
+        <h1>Serial and Batch Tracking</h1>
+        <p>Serial and batch tracking are vital for businesses that deal with perishable goods or products that require precise tracking. By assigning unique serial numbers or batch codes to each item, you can effectively monitor its movement, expiration dates, and quality. This feature helps reduce product loss, ensures timely stock rotation, and maintains high-quality standards across your inventory. It’s especially valuable for businesses in industries like pharmaceuticals, food production, electronics, and any other sector where product traceability is crucial.</p>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>What is Serial and Batch Tracking?</h3>
+                <p>Serial tracking involves assigning a unique identifier to each individual item. This identifier is used to track the product throughout its lifecycle, from the time it enters your inventory to when it is sold or used. It provides detailed information about each item, including its origin, status, and movement.</p>
+                <p>Batch tracking, on the other hand, groups items into batches based on shared characteristics such as production date, manufacturing lot, or expiration date. Each batch is assigned a unique code, making it easy to monitor the stock of that entire batch at once, whether it’s in a warehouse, during transportation, or on a store shelf.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>How Serial Tracking Works</h3>
+                <p>With serial tracking, each product is assigned a unique serial number, which is recorded in your inventory management system. This serial number is used to track the item throughout its entire lifecycle, including its movement between locations, its sales, and even its warranty or service records if applicable. Here’s how it works:</p>
+                <ol>
+                    <li>Each product receives a unique serial number when it enters your inventory.</li>
+                    <li>The serial number is associated with detailed product information, such as manufacture date, batch number, and location.</li>
+                    <li>As the product moves through the supply chain (e.g., warehouse, store, or customer), the serial number is tracked, allowing for precise inventory control.</li>
+                    <li>Once the product is sold or used, the serial number helps with post-sale tracking, such as returns, repairs, or product recalls.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Benefits of Serial Tracking</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Increased Traceability: Easily track each product's entire journey from the moment it enters your inventory to its final destination, improving visibility and control.</li>
+                    <li class="list-group-item">Improved Product Quality Management: Monitor items for quality assurance, ensuring that expired or defective products are quickly identified and removed from stock.</li>
+                    <li class="list-group-item">Faster Recall Management: In case of a recall, having serial numbers allows you to quickly pinpoint which products need to be returned or removed from shelves.</li>
+                    <li class="list-group-item">Better Warranty Management: Track product warranties by serial number, ensuring timely repairs or replacements for customers.</li>
+                    <li class="list-group-item">Enhanced Inventory Control: With serial tracking, you gain a deeper insight into your stock and can manage your inventory with more precision.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>How Batch Tracking Works</h3>
+                <p>Batch tracking allows you to group similar items into batches based on shared characteristics, like the production date, expiration date, or manufacturing lot. Each batch is assigned a unique batch number, making it easy to track the stock of an entire batch at once. This is particularly useful for businesses that sell products with expiration dates or products that must be used in a specific order (e.g., FIFO - First In, First Out).</p>
+                <p>The process of batch tracking typically follows these steps:</p>
+                <ol>
+                    <li>When a batch of products is manufactured or received, it is assigned a unique batch number.</li>
+                    <li>The batch number is recorded along with key information, such as production date, expiration date, and quantity of items in the batch.</li>
+                    <li>As the batch moves through your inventory and supply chain, the batch number is used to monitor stock levels, ensuring that older products are used first (FIFO).</li>
+                    <li>If any issues arise, such as expired products or defective batches, the batch number makes it easy to locate and manage the affected items.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Benefits of Batch Tracking</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Improved Stock Rotation: Ensures that older stock is used first, reducing waste and minimizing the risk of expired products.</li>
+                    <li class="list-group-item">Easier Expiration Date Management: Easily track products that are approaching their expiration date and make decisions about restocking or promotions.</li>
+                    <li class="list-group-item">Better Control Over Recalls: Batch tracking allows you to identify which batches are affected by a recall and remove them from inventory quickly.</li>
+                    <li class="list-group-item">Streamlined Inventory Reporting: Track and report on inventory levels by batch, giving you clearer insights into stock performance and trends.</li>
+                    <li class="list-group-item">Compliance and Quality Assurance: Meet industry regulations by ensuring that products are consistently monitored and tracked by batch number for quality assurance purposes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Real-Life Use Cases for Serial and Batch Tracking</h3>
+                <p>Businesses across various industries can benefit from serial and batch tracking. Some examples include:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Pharmaceuticals: Track medicines by serial number to ensure proper tracking, manage expiration dates, and handle recalls efficiently.</li>
+                    <li class="list-group-item">Food and Beverage: Ensure food safety by tracking batches of perishable goods and ensuring products are consumed before their expiration dates.</li>
+                    <li class="list-group-item">Electronics: Use serial tracking to manage the lifecycle of electronic devices, including warranty management and recall processes.</li>
+                    <li class="list-group-item">Cosmetics: Track batches of cosmetics for safety and quality control, ensuring that expired products are removed and recalled if necessary.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Getting Started with Serial and Batch Tracking</h3>
+                <p>Getting started with serial and batch tracking is simple. Here's how to begin:</p>
+                <ol>
+                    <li>Set up your inventory management system to support serial and batch tracking.</li>
+                    <li>Assign unique serial numbers and batch codes to all products in your inventory.</li>
+                    <li>Record detailed information for each item or batch, such as expiration dates, production dates, and quantity.</li>
+                    <li>Use the system to monitor the movement of each item or batch throughout your inventory and supply chain.</li>
+                    <li>Generate reports and track products based on serial numbers and batch codes to ensure compliance and reduce waste.</li>
+                </ol>
+                <p>Start today to improve your inventory management, reduce losses, and maintain high standards of quality control across your products!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

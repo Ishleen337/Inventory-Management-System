@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invenzo - Inventory Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container-fluid">
+        <!-- Invenzo Logo on the Supreme Left -->
+        <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+            <strong class="brand-name">Invenzo</strong>
+        </a>
+
+        <!-- Navbar Toggle for Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Items -->
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('features') }}">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('solutions') }}">Solutions</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('pricing') }}">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('customers') }}">Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('integrations') }}">Integrations</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('resources') }}">Resources</a></li>
+            </ul>
+
+            <!-- Search Box -->
+            <form class="d-flex ms-3" action="{{ url_for('search') }}" method="GET">
+                <input class="form-control me-2" type="search" name="query" placeholder="Search..." aria-label="Search" required>
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <!-- User Authentication Section -->
+            {% if session.get('user') %}
+                <!-- Account Icon with Dropdown -->
+                <div class="dropdown ms-3">
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i> <!-- User Icon -->
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('order_management') }}">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <!-- Sign In & Sign Up -->
+                <a href="{{ url_for('login') }}" class="btn btn-outline-dark ms-3">Sign In</a>
+                <a href="{{ url_for('signup') }}" class="btn btn-dark ms-2">Sign Up</a>
+            {% endif %}
+
+            <!-- Talk to Us Button -->
+            <a href="{{ url_for('team') }}" class="btn btn-primary ms-3 talk-btn">Talk to Us</a>
+        </div>
+    </div>
+</nav>
+
+
+        
+<!-- Beautiful Interface Below Navbar -->
+<section class="hero-section text-center">
+    <div class="container">
+        <!-- Small Cart Icon with Animation -->
+        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" 
+             alt="Cart Icon" 
+             class="cart-icon animated-icon">
+
+        <!-- Hero Title -->
+        <h1 class="hero-title mt-4">
+            Smart Inventory Management <br> 
+            <span class="highlight">Made for Your Business</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle">
+            Effortlessly manage orders, track inventory in real-time, <br> 
+            and optimize warehouse operations with ease.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+            <a href="/signup" class="btn btn-primary btn-lg">Get Started</a>
+            <a href="/features" class="btn btn-outline-light btn-lg">Explore Features</a>
+        </div>
+    </div>
+</section>
+
+
+    <section class="info-box">
+        <div class="info-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989973.png" alt="Inventory Icon" class="info-icon">
+            <div class="info-text">
+                <h3>Effortless Inventory Management</h3>
+                <p>Stay ahead of stock tracking, invoicing, and order management with our seamless inventory system.</p>
+            </div>
+            <button class="learn-more-btn" onclick="openTab()">LEARN MORE</button>
+        </div>
+    </section>
+    
+
+    <!-- Decorative Section Divider -->
+    <div class="section-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="white" fill-opacity="1" 
+                  d="M0,160L120,170.7C240,181,480,203,720,192C960,181,1200,139,1320,117.3L1440,96V320H0Z">
+            </path>
+        </svg>
+    </div>
+
+    <section class="animated-section">
+        <div class="container">
+            <!-- Small Icon to Make It More Engaging -->
+            <img src="https://cdn-icons-png.flaticon.com/512/2331/2331946.png" alt="GST Icon" class="animated-icon">
+            <h2>What makes Invenzo GST Compliant?</h2>
+            <div class="tabs">
+                <button class="tab-link active" data-tab="gstin">GSTIN</button>
+                <button class="tab-link" data-tab="hsn">HSN/SAC CODES</button>
+                <button class="tab-link" data-tab="invoices">INVOICES</button>
+                <button class="tab-link" data-tab="taxes">TAXES</button>
+                <button class="tab-link" data-tab="eway">E-WAY BILLS</button>
+                <button class="tab-link" data-tab="delivery">DELIVERY CHALLAN</button>
+            </div>
+            <div class="tab-content">
+                <p id="gstin-content" class="tab-item active">Save GSTINs of customers and vendors.</p>
+                <p id="hsn-content" class="tab-item">Assign HSN/SAC codes to products.</p>
+                <p id="invoices-content" class="tab-item">Generate GST-compliant invoices easily.</p>
+                <p id="taxes-content" class="tab-item">Automatic tax calculations.</p>
+                <p id="eway-content" class="tab-item">Generate e-way bills with one click.</p>
+                <p id="delivery-content" class="tab-item">Manage delivery challans effortlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Pop-Up Box -->
+<div id="popup-modal" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closeTab()">&times;</span>
+        <h2>Explore Advanced Inventory Features</h2>
+        <p>Our AI-driven stock tracking and automated reports help you scale your business effortlessly.</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/2916/2916315.png" alt="Feature Image">
+    </div>
+</div>    
+
+<section class="topics-section">
+    <h2>From MSMEs to large-scale corporations, Invenzo supports all businesses</h2>
+    <div class="topics-container">
+        <div class="topic-card" onclick="window.location.href='{{url_for('order_management')}}'">
+            <span class="topic-icon">📦</span>
+            <h3>Order Management</h3>
+            <p>Handle sales, invoices, and payments while tracking deliveries.</p>
+            <a href="{{ url_for('order_management') }}">Learn More</a>
+        </div>
+
+        <div class="topic-card" onclick="window.location.href='{{ url_for('warehouse_management') }}'">
+            <span class="topic-icon">🏢</span>
+            <h3>Warehouse Management</h3>
+            <p>Track item movements, transfers, and generate warehouse reports.</p>
+            <a href="{{ url_for('warehouse_management') }}">Learn More</a>
+        </div>
+
+        <div class="topic-card" onclick="window.location.href='{{ url_for('barcodes') }}'">
+            <span class="topic-icon">📑</span>
+            <h3>Barcode Scanning</h3>
+            <p>Set up a barcode system with SKUs and serial numbers.</p>
+            <a href="{{ url_for('barcodes') }}">Learn More</a>
+        </div>
+
+        <div class="topic-card" onclick="window.location.href='{{ url_for('integrations2') }}'">
+            <span class="topic-icon">🔗</span>
+            <h3>Integrations</h3>
+            <p>Connect with Zoho CRM, Shopify, Etsy, and more.</p>
+            <a href="{{ url_for('integrations2') }}">Learn More</a>
+        </div>
+
+        <div class="topic-card" onclick="window.location.href='{{ url_for('inventory') }}'">
+            <span class="topic-icon">📍</span>
+            <h3>Inventory Tracking</h3>
+            <p>Monitor spare parts, expiry dates, and batch tracking.</p>
+            <a href="{{ url_for('inventory') }}">Learn More</a>
+        </div>
+
+        <div class="topic-card" onclick="window.location.href='{{ url_for('reports') }}'">
+            <span class="topic-icon">📊</span>
+            <h3>Reports</h3>
+            <p>Generate inventory reports, sales analysis, and vendor payments.</p>
+            <a href="{{ url_for('reports') }}">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Overview Link -->
+<div class="features-overview">
+    <p>Get a complete overview of our 
+        <a href="{{ url_for('features') }}" class="features-link">inventory management features</a>.
+    </p>
+</div>
+
+<!-- Integrations Section -->
+<section class="integrations-section">
+    <h2 class="integrations-heading">Invenzo Integrates With</h2>
+
+    <div class="integrations-container">
+        <a href="https://workspace.google.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/g_suite_logo.jpg" alt="Gsuite">
+            </div>
+            <p>Gsuite</p>
+        </a>
+        <a href="https://www.zoho.com/books/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/zoho_books_logo.jpg" alt="Zoho Books">
+            </div>
+            <p>Zoho Books</p>
+        </a>
+        <a href="https://www.aftership.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/aftership_logo.jpg" alt="AfterShip">
+            </div>
+            <p>AfterShip</p>
+        </a>
+        <a href="https://www.zoho.com/crm/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/zoho_crm_logo.jpg" alt="Zoho CRM">
+            </div>
+            <p>Zoho CRM</p>
+        </a>
+        <a href="https://www.shopify.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/shopify_logo.jpg" alt="Shopify">
+            </div>
+            <p>Shopify</p>
+        </a>
+        <a href="https://www.amazon.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/amazon_logo.jpg" alt="Amazon">
+            </div>
+            <p>Amazon</p>
+        </a>
+        <a href="https://razorpay.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/razorpay_logo.jpg" alt="Razorpay">
+            </div>
+            <p>Razorpay</p>
+        </a>
+        <a href="https://www.spscommerce.com/" target="_blank" class="integration-card">
+            <div class="icon-container">
+                <img src="../static/images/sps_logo.jpg" alt="SPS">
+            </div>
+            <p>SPS</p>
+        </a>
+    </div>
+</section>
+
+
+<section class="pricing-section">
+    <h2 class="pricing-heading">Simple pricing. <span>No surprises.</span></h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3>Free</h3>
+            <h2>₹0</h2>
+            <p>per organization / year</p>
+            <p>₹0 per organization / month</p>
+            <button class="get-started" onclick="redirectToSignup('free')">GET STARTED</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Standard</h3>
+            <h2>₹12,999</h2>
+            <p>per organization / year</p>
+            <p>₹2,299 per organization / month</p>
+            <button class="get-started" onclick="redirectToSignup('standard')">GET STARTED</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Professional</h3>
+            <h2>₹26,999</h2>
+            <p>per organization / year</p>
+            <p>₹5,499 per organization / month</p>
+            <button class="get-started" onclick="redirectToSignup('professional')">GET STARTED</button>
+        </div>
+        <div class="pricing-card popular">
+            <span class="badge">MOST POPULAR</span>
+            <h3>Premium</h3>
+            <h2>₹45,999</h2>
+            <p>per organization / year</p>
+            <p>₹9,499 per organization / month</p>
+            <button class="get-started highlight" onclick="redirectToSignup('premium')">GET STARTED</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <h2>₹89,999</h2>
+            <p>per organization / year</p>
+            <p>₹17,499 per organization / month</p>
+            <button class="get-started" onclick="redirectToSignup('enterprise')">GET STARTED</button>
+        </div>
+    </div>
+    <p class="pricing-note">* Prices are exclusive of GST.</p>
+    <p class="pricing-link">Check out our <a href="#">Pricing page</a> for complete details ›</p>
+</section>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">What Our Customers Say</h2>
+
+    <div id="testimonialCarousel" class="carousel slide testimonial-section" data-bs-ride="carousel">
+        
+        <div class="carousel-inner">
+            {% for testimonial in testimonials %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="testimonial-content">
+                    <img src="{% if testimonial.image %}{{ testimonial.image }}{% else %}https://cdn-icons-png.flaticon.com/512/3177/3177440.png{% endif %}" 
+                         class="testimonial-avatar" 
+                         alt="{{ testimonial.name }}">
+                    <p class="testimonial-text">"{{ testimonial.feedback }}"</p>
+                    <p class="testimonial-author">{{ testimonial.name }}</p>
+                    <p class="testimonial-role">{{ testimonial.designation }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            {% for testimonial in testimonials %}
+            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}"></button>
+            {% endfor %}
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+</div>
+
+
+<!-- Shipping Partners Section -->
+<div class="shipping-section">
+    <h3 class="section-title">We have partnered with the best shipping carriers</h3>
+    <div class="shipping-logos">
+        <div class="brand-logo"><img src="{{ url_for('static', filename='images/aramex.png') }}" alt="Aramex"></div>
+        <div class="brand-logo"><img src="{{ url_for('static', filename='images/dhl.png') }}" alt="DHL"></div>
+        <div class="brand-logo"><img src="{{ url_for('static', filename='images/dpd.png') }}" alt="DPD"></div>
+        <div class="brand-logo"><img src="{{ url_for('static', filename='images/ups.png') }}" alt="UPS"></div>
+        <div class="brand-logo"><img src="{{ url_for('static', filename='images/fedex.png') }}" alt="FedEx"></div>
+    </div>
+</div>
+
+<!-- Sign Up Banner -->
+<div class="signup-banner">
+    <p class="signup-text">Hello, Namaste, Vanakkam 🙏</p>
+    <p class="signup-subtext">We will be happy to have you on board.</p>
+    <a href="{{ url_for('signup') }}" class="signup-btn">SIGN UP FOR FREE</a>
+</div>
+
+
+<footer>
+    <div class="footer-top">
+        <div class="footer-left">
+            <p>Send us an <a href="#">Email</a> (or) India - 18005726671 (Monday - Friday 9:00AM to 7:00PM)</p>
+            <label for="edition">Select Edition:</label>
+            <select id="edition">
+                <option>🇮🇳 India</option>
+                <option>🇺🇸 USA</option>
+                <option>🇬🇧 UK</option>
+            </select>
+            <p>Available On:</p>
+            <img src="app-store.png" alt="App Store">
+            <img src="google-play.png" alt="Google Play">
+        </div>
+        <div class="footer-middle">
+            <p>Choose Privacy. Choose Invenzo.</p>
+            <div class="certifications">
+                <img src="iso.png" alt="ISO Certified">
+                <img src="soc2.png" alt="SOC2 Certified">
+                <img src="gdpr.png" alt="GDPR Compliant">
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>Connect with Us:</p>
+            <a href="#"><img src="twitter.png" alt="X"></a>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="youtube.png" alt="YouTube"></a>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <div class="footer-section">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="{{url_for('order_management')}}">Order Management Software</a></li>
+                <li><a href="{{url_for('inventory')}}">Inventory Tracking</a></li>
+                <li><a href="{{url_for('warehouse_management')}}">Warehouse Management</a></li>
+                <li><a href="{{url_for('reports')}}">Inventory Reports</a></li>
+                <li><a href="{{url_for('features')}}">All Features</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Solutions</h4>
+            <ul>
+                <li><a href="#">E-commerce Inventory</a></li>
+                <li><a href="#">Amazon Inventory</a></li>
+                <li><a href="#">Shopify Inventory</a></li>
+                <li><a href="#">Retail Inventory</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="{{url_for('pricing')}}">Pricing</a></li>
+                <li><a href="{{url_for('integrations')}}">Integrations</a></li>
+                <li><a href="{{url_for('customers')}}">Customers</a></li>
+                <li><a href="#">Best Inventory Software</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Resources</h4>
+            <ul>
+                <li><a href="#">Help Documentation</a></li>
+                <li><a href="#">API Docs</a></li>
+                <li><a href="#">Webinars</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Invenzo Corporation Pvt. Ltd. All Rights Reserved.</p>
+        <p>
+            <a href="{{ url_for('security') }}">Security</a> | 
+            <a href="{{ url_for('terms_of_service') }}">Terms of Service</a> | 
+            <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> | 
+            <a href="{{ url_for('cookie_policy') }}">Cookie Policy</a>
+        </p>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script>
+        function redirectToSignup(plan) {
+            window.location.href = `/signup2?plan=${plan}`;
+        }
+    
+        document.querySelector(".pricing-link a").addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = "/pricing-details";
+        });
+    </script>
+
+    <!-- Bootstrap JS (includes Popper.js) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>

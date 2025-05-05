@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - Invenzo</title>
+
+    <!-- ✅ Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventory_management.css') }}">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            background: white;
+        }
+
+        .table {
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table thead {
+            background: #007bff;
+            color: white;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table-hover tbody tr:hover {
+            background: #e2e6ea;
+        }
+
+        .btn-sm {
+            font-size: 0.85rem;
+            padding: 7px 12px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+                <strong class="brand-name">Invenzo</strong>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('order_management') }}">Order-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('inventory') }}">Inventory-Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('barcodes') }}">Barcode-Scanning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('integrations2') }}">Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('warehouse_management') }}">Warehouse-Management</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('reports') }}">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="{{ url_for('team') }}">Talk to Us</a></li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-end">
+                <a href="{{ url_for('home') }}" class="btn btn-outline-dark">Home</a>
+            </div>
+        </div>
+    </nav>
+
+ <!-- ✅ Topic Content -->
+ <section class="topic-page text-center">
+    <div class="container">
+        <h2 class="mb-4">Inventory List:</h2>
+        <div class="table-container">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Cost per Unit</th>
+                        <th>Total Cost</th>
+                        <th>Supplier Name</th>
+                        <th>Supplier Email</th>
+                        <th>Supplier Phone</th>
+                        <th>Order Status</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.item_id }}</td>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.item_category }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.cost_per_unit }}</td>
+                        <td>{{ item.total_cost }}</td>
+                        <td>{{ item.supplier_name }}</td>
+                        <td>{{ item.supplier_email }}</td>
+                        <td>{{ item.supplier_phone }}</td>
+                        <td>{{ item.order_status }}</td>
+                        <td>{{ item.notes }}</td>
+                        <td>
+                            <a href="{{ url_for('update_item', id=item.id) }}" class="btn btn-warning btn-sm">Update</a>
+                            <a href="{{ url_for('delete_item', id=item.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ✅ Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

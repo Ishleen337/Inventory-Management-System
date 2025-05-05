@@ -1,0 +1,5 @@
+Invoice #12345
+Customer: John Doe
+Total: ₹500
+Due Date: 20th March 2025
+Status: Pending

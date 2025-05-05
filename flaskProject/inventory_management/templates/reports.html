@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #fff; /* White background */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 15px 30px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #000; /* Black text */
+            font-size: 18px;
+            margin-right: 20px;
+            padding: 8px 16px;
+            border: 2px solid transparent; /* Transparent border for now */
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: #fff;
+            background-color: #000; /* Black background on hover */
+            border-color: #000; /* Black border on hover */
+            border-radius: 5px;
+        }
+
+        .navbar .navbar-brand .brand-name {
+            font-size: 30px;
+            font-weight: bold;
+            color: #000; /* Black text */
+            transition: color 0.3s ease;
+        }
+
+        .navbar .navbar-brand .brand-name:hover {
+            color: #444; /* Slight grey on hover */
+        }
+
+        .navbar-toggler {
+            border: none;
+            background-color: #000;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        /* Main Section Styling */
+        .reports-heading {
+            font-size: 40px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .container2 {
+            max-width: 1000px;
+            margin: auto;
+            padding: 50px 20px;
+            color: #333;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 0.5s forwards;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        /* Card Animation and Hover Effect */
+        .container1 {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin-top: 30px;
+            padding-top: 30px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            height: 260px;
+            text-align: center;
+            color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            filter: grayscale(100%); /* Convert the image to black and white */
+            transition: transform 0.3s ease;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #000;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Button Hover Animation */
+        .talk-to-us-btn .btn-danger {
+            background-color: #000;
+            border-color: #000;
+            color: #000; /* Black text color */
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .talk-to-us-btn .btn-danger:hover {
+            transform: scale(1.1);
+            background-color: #444;
+            color: #fff; /* White text color on hover */
+        }
+
+        /* Image Styling with Border and Animation */
+        img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-top: 30px;
+            border-radius: 15px;
+            border: 5px solid #000;
+            transition: transform 0.3s ease, border 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1.5s forwards;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            border: 5px solid #fff;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container1 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container2 {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+                <strong class="brand-name">Invenzo</strong>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('features') }}">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('solutions') }}">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('pricing') }}">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('customers') }}">Customers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('integrations') }}">Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('resources') }}">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('team') }}">Talk to Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="topic-page text-center">
+        <div class="container">
+            <div class="reports-heading">
+                <h1>Reports</h1>
+            </div>
+
+            <div class="container1">
+                <div class="card">
+                    <h3>Keep an eye out for detail</h3>
+                    <p>Fluctuations in sales, poor customer retention, and failed sales targets are bad scenarios for a business to go through...</p>
+                </div>
+                <div class="card">
+                    <h3>Don't let your vendors wander</h3>
+                    <p>A good relationship with your suppliers helps ensure a regular supply of items at the right time...</p>
+                </div>
+                <div class="card">
+                    <h3>Know their worth</h3>
+                    <p>When you have a growing list of items, it can be slightly overwhelming to trace the journey of each batch of stock...</p>
+                </div>
+            </div>
+
+            <div class="container2">
+                <h1>Inventory reports designed to help you run your business</h1>
+                <p>Inventory reports that can help run a business effectively include: inventory value reports, sales-by-product reports, stock on hand reports, reorder point reports, slow-moving item reports, demand forecasting reports, and inventory turnover reports; all designed to track stock levels, identify potential issues like overstocking or understocking, and inform purchasing decisions to optimize inventory management and profitability</p>
+            </div>
+
+            <!-- Animated Image with Border -->
+            <img src="../static/images/report_img.jpg" alt="">
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

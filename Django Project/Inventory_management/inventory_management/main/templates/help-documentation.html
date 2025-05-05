@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn More</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8em; /* Set font size to 0.8em */
+    }
+
+    /* Navbar Styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 3em;
+      background-color: #333;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    nav a.home {
+      border: 2px solid white; /* Add white border */
+      padding: 0.5em 1.2em;
+      border-radius: 4px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a.home:hover {
+      background-color: #555; /* Change background color on hover */
+    }
+
+    /* Header without the blue color */
+    header {
+      text-align: center;
+      padding: 2em 0;
+      background-color: white; /* Remove blue color */
+    }
+
+    h1 {
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      animation: slideInFromTop 1.5s ease-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+      animation: slideInFromBottom 1.5s ease-out;
+    }
+
+    .learn-more-container {
+      padding: 2em 3em;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1; /* This allows content to take up the remaining space without overlapping footer */
+    }
+
+    .overview, .features, .testimonials, .contact-us {
+      background-color: #fff;
+      padding: 2em;
+      margin-bottom: 2em; /* Add space after each section */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    .features ul, .testimonials ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li, .testimonials li {
+      margin: 1em 0;
+      font-size: 1.1em;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Additional info by default visible */
+    .additional-info {
+      display: block; /* Automatically show the content */
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 2em;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease-in-out;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      width: 100%;
+    }
+
+    /* Animations */
+    @keyframes slideInFromTop {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromBottom {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div><a href="/">Invenzo</a></div>
+    <div><a href="/" class="home">Home</a></div> <!-- Added "home" class for styling -->
+  </nav>
+
+  <!-- Header without the blue color -->
+  <header>
+    <h1>Learn More About Our Features</h1>
+    <p>Gain in-depth knowledge of all the features, customization, and implementation procedures.</p>
+  </header>
+
+  <section class="learn-more-container">
+    <!-- Overview Section -->
+    <div class="overview">
+      <h2>Overview</h2>
+      <p>Our platform offers several features that help you streamline your work processes. Learn more to explore all the possibilities.</p>
+      <div class="additional-info">
+        <p>This section provides an overview of how our platform can help you boost productivity with advanced features like real-time collaboration, automation, and integration capabilities.</p>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+      <h2>Our Features</h2>
+      <p>Our platform offers a wide range of features to make your workflow smoother and more efficient. Explore our key features:</p>
+      <ul>
+        <li><strong>Customizable Dashboard:</strong> Personalize your experience with a tailored dashboard that fits your workflow.</li>
+        <li><strong>Multi-platform Support:</strong> Access your tools from any device, be it desktop, tablet, or mobile.</li>
+        <li><strong>24/7 Customer Support:</strong> Get immediate assistance anytime with our round-the-clock support team.</li>
+        <li><strong>Secure Cloud Storage:</strong> Store your data safely in the cloud and access it anytime, anywhere.</li>
+        <li><strong>Easy Integration:</strong> Quickly integrate with other platforms and services you already use.</li>
+      </ul>
+      <div class="additional-info">
+        <p>Our features include powerful customization options, multi-platform compatibility, secure cloud storage, and an intuitive interface that helps you stay productive.</p>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <ul>
+        <li>"Invenzo has transformed the way we manage our operations. It's intuitive and powerful." - John D.</li>
+        <li>"A game-changer for our team. The collaborative features are just what we needed." - Sarah M.</li>
+        <li>"We love the customizable dashboards. It fits perfectly into our daily routine." - Alex T.</li>
+        <li>"Customer support is top-notch. I can always count on them when I need help." - Emily R.</li>
+      </ul>
+      <div class="additional-info">
+        <p>Our clients have praised us for our outstanding customer support, easy-to-use interface, and powerful features that drive productivity. Read their stories!</p>
+      </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact-us">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or need further assistance, feel free to reach out to us:</p>
+      <ul>
+        <li><strong>Email:</strong> support@invenzo.com</li>
+        <li><strong>Phone:</strong> +1 (800) 123-4567</li>
+        <li><strong>Address:</strong> 123 Invenzo St, Tech City, TX 75001</li>
+      </ul>
+      <div class="additional-info">
+        <p>For support or inquiries, you can reach us through email, phone, or visit our office. Our team is here to help you.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Invenzo Inventory. All rights reserved.</p>
+</footer>
+</body>
+</html>

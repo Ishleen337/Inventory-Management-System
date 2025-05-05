@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Warehouse Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f9f9f9;
+            color: #444;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            color: #666;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 30px;
+            width: 90%;
+            max-width: 1000px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-content h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 16px;
+            color: #777;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* New Features Section */
+        .features-section {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 60px;
+            background-color: #fafafa;
+            width: 100%;
+            margin-top: 60px;
+            border-top: 4px solid #ddd;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .feature-box {
+            width: 240px;
+            height: 240px;
+            background-color: #e6e6e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .feature-box:hover {
+            background-color: #d4d4d4;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-box i {
+            font-size: 40px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .feature-text {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-box {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Invenzo</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link talk-to-us" href="{{ url_for('contact_us') }}">Talk to Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div style="margin-top: 120px;">
+        <h1>Multi-Warehouse Inventory Management</h1>
+        <h2>Efficiently manage inventory across multiple warehouses, streamline logistics, and optimize operations</h2>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Track Warehouse Inventory</h3>
+                    <p>Monitor stock levels, track products, and manage supply chains across multiple warehouses in real-time.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Warehouse Operations</h3>
+                    <p>Optimize storage, manage staff, and organize warehouse operations for smooth and efficient workflows.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Inventory Distribution</h3>
+                    <p>Distribute inventory across warehouses based on demand, optimize shipping, and reduce operational costs.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Real-Time Analytics</h3>
+                    <p>Generate real-time reports, analyze stock movements, and track warehouse performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Features Section -->
+    <div class="features-section">
+        <div class="feature-box">
+            <i class="fas fa-boxes"></i>
+            <div class="feature-text">
+                <h4>Stock Management</h4>
+                <p>Manage stock levels and streamline reordering processes across all warehouses.</p>
+            </div>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-truck"></i>
+            <div class="feature-text">
+                <h4>Logistics Optimization</h4>
+                <p>Plan and optimize routes for faster deliveries and minimize transportation costs.</p>
+            </div>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-chart-line"></i>
+            <div class="feature-text">
+                <h4>Analytics Dashboard</h4>
+                <p>Gain insights into warehouse performance, inventory trends, and more through interactive analytics dashboards.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Page</title>
+    <link rel="stylesheet" href="{% static 'security/styles.css' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            font-size: 0.8em;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end; /* Align content to the right */
+        }
+
+        .navbar a {
+            color: white;
+            font-size: 1.0em;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-left: 20px;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #4CAF50;
+            font-size: 2em;
+        }
+
+        header p {
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .security-option {
+            background-color: #e0f7fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .security-option h2 {
+            font-size: 1.5em;
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+
+        .security-option label,
+        .security-option input[type="password"],
+        .security-option input[type="checkbox"],
+        .security-option button,
+        .security-option select,
+        .security-option textarea {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .security-option input[type="password"],
+        .security-option input[type="email"],
+        .security-option input[type="text"],
+        .security-option input[type="textarea"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .security-option input[type="checkbox"] {
+            width: auto;
+            margin-left: 0;
+            margin-top: 5px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        /* Styling for the custom dropdown */
+        select {
+            background-color: #ffffff;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Arrow icon for the dropdown */
+        select::-ms-expand {
+            display: none;
+        }
+
+        select:hover {
+            border-color: #4CAF50;
+        }
+
+        select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Custom dropdown container */
+        .custom-dropdown-container {
+            position: relative;
+        }
+
+        .custom-dropdown-container::after {
+            content: '▼';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="/">Home</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Security Settings</h1>
+            <p>Manage your security preferences to ensure your account is safe and secure.</p>
+        </header>
+
+        <section class="content">
+            <!-- Password Change Section -->
+            <div class="security-option">
+                <h2>Password Change</h2>
+                <p>Changing your password regularly can help prevent unauthorized access.</p>
+                <label for="password">New Password:</label>
+                <input type="password" id="password" placeholder="Enter new password">
+                <button onclick="changePassword()">Change Password</button>
+            </div>
+
+            <!-- Two-Factor Authentication Section -->
+            <div class="security-option">
+                <h2>Two-Factor Authentication</h2>
+                <p>Enhance security by enabling two-factor authentication.</p>
+                <button id="toggle2faBtn" onclick="toggle2FA()">Enable</button>
+            </div>
+
+            <!-- Security Alerts -->
+            <div class="security-option">
+                <h2>Security Alerts</h2>
+                <p>Get notified about suspicious activity on your account.</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="alerts">
+                    <label for="alerts">Enable Alerts</label>
+                </div>
+            </div>
+
+            <!-- Security Questions -->
+            <div class="security-option">
+                <h2>Security Questions</h2>
+                <p>Provide additional security for account recovery.</p>
+                <label for="security-question">Select a Security Question:</label>
+                <div class="custom-dropdown-container">
+                    <select id="security-question" onchange="toggleCustomQuestion()">
+                        <option value="custom">Create a custom question</option>
+                        <option value="mother_maiden_name">What is your mother's maiden name?</option>
+                        <option value="first_pet">What was the name of your first pet?</option>
+                        <option value="birthplace">Where were you born?</option>
+                    </select>
+                </div>
+
+                <!-- Input for Custom Question -->
+                <div id="custom-question-container" style="display: none;">
+                    <label for="custom-question">Enter Your Custom Question:</label>
+                    <input type="text" id="custom-question" placeholder="Enter your custom question">
+                </div>
+
+                <label for="security-answer">Answer:</label>
+                <input type="text" id="security-answer" placeholder="Enter answer">
+                <button onclick="saveSecurityQuestion()">Save</button>
+            </div>
+
+            <!-- Account Activity -->
+            <div class="security-option">
+                <h2>Account Activity</h2>
+                <p>Review recent logins and account access.</p>
+                <button onclick="viewActivity()">View Activity</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Inventory Management System</p>
+        </footer>
+    </div>
+    <script>
+        // Function to simulate password change
+function changePassword() {
+    const password = document.getElementById("password").value;
+    if (password.length >= 6) {
+        alert("Password changed successfully!");
+    } else {
+        alert("Password must be at least 6 characters long.");
+    }
+}
+
+// Two-Factor Authentication Toggle
+let is2FAEnabled = false;
+function toggle2FA() {
+    const button = document.getElementById("toggle2faBtn");
+    is2FAEnabled = !is2FAEnabled;
+    button.innerText = is2FAEnabled ? "Disable" : "Enable";
+    alert(`Two-Factor Authentication has been ${is2FAEnabled ? "enabled" : "disabled"}.`);
+}
+
+// Save Security Question
+function saveSecurityQuestion() {
+    const question = document.getElementById("security-question").value;
+    const answer = document.getElementById("security-answer").value;
+    
+    if (question && answer) {
+        alert("Security question saved successfully!");
+    } else {
+        alert("Please select a security question and provide an answer.");
+    }
+}
+
+// View Account Activity
+function viewActivity() {
+    alert("Displaying recent account activity...");
+}
+
+    </script>
+
+    <script src="{% static 'security/scripts.js' %}"></script>
+
+</body>
+</html>

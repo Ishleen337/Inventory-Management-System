@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8em; /* Set font size to 0.8em */
+    }
+
+    /* Navbar Styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 3em;
+      background-color: #333;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    nav a.home {
+      border: 2px solid white; /* Add white border */
+      padding: 0.5em 1.2em;
+      border-radius: 4px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a.home:hover {
+      background-color: #555; /* Change background color on hover */
+    }
+
+    /* Header without the blue color */
+    header {
+      text-align: center;
+      padding: 2em 0;
+      background-color: white; /* Remove blue color */
+    }
+
+    h1 {
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      animation: slideInFromTop 1.5s ease-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+      animation: slideInFromBottom 1.5s ease-out;
+    }
+
+    .faq-container {
+      padding: 2em 3em;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1; /* This allows content to take up the remaining space without overlapping footer */
+    }
+
+    .faq-section {
+      background-color: #fff;
+      padding: 2em;
+      margin-bottom: 2em; /* Add space after each section */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    .faq-section h2 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+
+    .faq-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .faq-section li {
+      margin: 1.5em 0;
+      font-size: 1.1em;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Additional info by default visible */
+    .additional-info {
+      display: block; /* Automatically show the content */
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 2em;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease-in-out;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      width: 100%;
+    }
+
+    /* Animations */
+    @keyframes slideInFromTop {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromBottom {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div><a href="/">Invenzo</a></div>
+    <div><a href="/" class="home">Home</a></div> <!-- Added "home" class for styling -->
+  </nav>
+
+  <!-- Header without the blue color -->
+  <header>
+    <h1>Frequently Asked Questions</h1>
+    <p>Our Knowledge Base has detailed answers to common questions about Invenzo Inventory.</p>
+  </header>
+
+  <section class="faq-container">
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>FAQs</h2>
+      <p>Here are some frequently asked questions about Invenzo Inventory:</p>
+      <ul>
+        <li><strong>What is Invenzo Inventory?</strong> Invenzo Inventory is a powerful inventory management platform that helps businesses efficiently track and manage their inventory in real-time.</li>
+        <li><strong>How do I get started?</strong> To get started, simply create an account, set up your inventory, and begin managing your items with ease. You can also customize your dashboard to fit your needs.</li>
+        <li><strong>Is Invenzo Inventory free?</strong> Invenzo Inventory offers a free trial with limited features. To access the full range of features, you can upgrade to a premium plan.</li>
+        <li><strong>Can I integrate with other platforms?</strong> Yes, Invenzo Inventory allows you to integrate with other platforms like e-commerce stores, CRM systems, and accounting tools to streamline your workflow.</li>
+        <li><strong>How secure is my data?</strong> Your data is securely stored on our cloud platform with top-notch encryption. We also offer multi-factor authentication (MFA) for added security.</li>
+        <li><strong>What if I have more questions?</strong> If you have any further questions, feel free to contact our support team through email, phone, or live chat for assistance.</li>
+      </ul>
+      <div class="additional-info">
+        <p>If you have more specific questions, please don't hesitate to reach out to our support team for personalized assistance. We're here to help you every step of the way!</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Invenzo Inventory. All rights reserved.</p>
+</footer>
+</body>
+</html>

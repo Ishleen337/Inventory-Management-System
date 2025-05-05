@@ -1,0 +1,171 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and general styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin-top: 60px;
+    padding: 0;
+}
+
+/* Sidebar Styling */
+.side-navbar {
+    width: 250px;
+    background-color: #333;
+    padding-top: 20px;
+    color: #fff;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-navbar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.side-navbar a:hover {
+    background-color: #444;
+}
+
+/* Hide sidebar on small screens */
+@media (max-width: 768px) {
+    .side-navbar {
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .side-navbar.active {
+        transform: translateX(0);
+    }
+
+    .side-navbar a {
+        font-size: 16px;
+    }
+}
+
+/* Main content styling */
+.container {
+    margin-left: 250px;
+    padding: 20px;
+    background: #fff;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+h3{
+    color: #333;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.topic-page h1 {
+    color: #333;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Form Styling */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ccc;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.button {
+    background-color: #333;
+    border: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+    }
+
+    .side-navbar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .side-navbar.active {
+        transform: translateX(0);
+    }
+
+    .form-control, .button {
+        width: 100%;
+    }
+    
+    .topic-page h2 {
+        font-size: 24px;
+    }
+    
+    .form-label {
+        font-size: 14px;
+    }
+}
+
+/* Add custom media queries to improve mobile experience */
+@media (max-width: 480px) {
+    .form-label {
+        font-size: 12px;
+    }
+
+    .side-navbar {
+        padding-top: 10px;
+    }
+}

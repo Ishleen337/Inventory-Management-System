@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essential Business Guides</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.8em; /* Set font size to 0.8em */
+    }
+
+    /* Navbar Styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2em 3em; /* Increased padding */
+      background-color: #333;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.3em; /* Slightly larger font size for links */
+    }
+
+    nav a.home {
+      border: 2px solid white;
+      padding: 0.8em 1.5em; /* Larger padding */
+      border-radius: 4px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    nav a.home:hover {
+      background-color: #555;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      padding: 3em 0; /* Increased padding for header */
+      background-color: white;
+    }
+
+    h1 {
+      font-size: 3.5em; /* Larger size for the header */
+      letter-spacing: 2px;
+      animation: slideInFromTop 1.5s ease-out;
+    }
+
+    p {
+      font-size: 1.4em; /* Slightly larger font size for paragraph */
+      margin-top: 1em;
+      animation: slideInFromBottom 1.5s ease-out;
+    }
+
+    .guide-container {
+      padding: 3em 4em; /* Increased padding for content */
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    .guide-section {
+      background-color: #fff;
+      padding: 3em; /* Larger padding for sections */
+      margin-bottom: 2.5em; /* Increased space between sections */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+
+    .guide-section h2 {
+      font-size: 2.8em; /* Larger size for subheadings */
+      margin-bottom: 1.5em;
+    }
+
+    .guide-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .guide-section li {
+      margin: 2.5em 0; /* More space between list items */
+      font-size: 1.4em; /* Slightly larger font size for list items */
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 1.2em 2.5em; /* Larger padding for button */
+      border: none;
+      border-radius: 4px;
+      font-size: 1.5em; /* Larger font size for the button */
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Additional info by default visible */
+    .additional-info {
+      display: block;
+      background-color: #fff;
+      padding: 3em; /* Larger padding for the additional information */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 2.5em;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease-in-out;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      width: 100%;
+    }
+
+    /* Animations */
+    @keyframes slideInFromTop {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideInFromBottom {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div><a href="/">Invenzo</a></div>
+    <div><a href="/" class="home">Home</a></div> <!-- Added "home" class for styling -->
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Essential Business Guides</h1>
+    <p>Get helpful information on how you can manage your finances and grow your business successfully.</p>
+  </header>
+
+  <section class="guide-container">
+    <!-- Guide Section -->
+    <div class="guide-section">
+      <h2>Essential Business Guides</h2>
+      <p>Welcome to the Invenzo Essential Business Guides, where you can find tips and strategies to help you manage and grow your business:</p>
+      <ul>
+        <li><strong>Financial Management:</strong> Learn how to manage your business's finances with practical advice on budgeting, cost-cutting, and investment strategies. Understand the basics of accounting, cash flow management, and financial planning to keep your business profitable and sustainable.</li>
+        <li><strong>Business Growth Strategies:</strong> Discover proven techniques for growing your business. From marketing strategies to scaling your operations, we cover topics such as customer acquisition, retention, and increasing sales while ensuring that your company remains profitable during expansion.</li>
+        <li><strong>Time Management Tips:</strong> Time is one of the most valuable resources for any entrepreneur. Explore effective time management tips and tools that can help you optimize your schedule, stay on top of priorities, and avoid burnout while running your business.</li>
+        <li><strong>Legal Essentials for Entrepreneurs:</strong> Navigating the legal landscape is crucial for any business. We break down key legal considerations, including business structure, contracts, intellectual property, and employee agreements, to ensure you're covered legally and avoid costly mistakes.</li>
+        <li><strong>Building a Strong Team:</strong> A successful business is built on a strong, motivated team. Learn how to recruit, hire, and retain top talent, as well as tips for fostering a positive work environment that encourages productivity and teamwork.</li>
+        <li><strong>Marketing and Branding:</strong> Master the art of marketing and building a strong brand identity. Learn about social media marketing, search engine optimization (SEO), email campaigns, and how to create a consistent brand message that resonates with your target audience.</li>
+        <li><strong>Customer Relationship Management (CRM):</strong> Discover strategies for managing customer relationships, improving customer satisfaction, and building loyalty. We discuss CRM tools, customer support best practices, and how to keep your customers coming back for more.</li>
+        <li><strong>Risk Management:</strong> Every business faces risks. Learn how to identify, assess, and mitigate potential risks to protect your company from losses. We provide insights into risk management practices, including insurance, business continuity planning, and crisis management.</li>
+      </ul>
+      <div class="additional-info">
+        <p>Empower your business with these guides and make informed decisions to ensure long-term success and growth!</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Invenzo Inventory. All rights reserved.</p>
+</footer>
+</body>
+</html>

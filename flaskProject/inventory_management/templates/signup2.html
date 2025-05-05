@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - {{ plan | capitalize }}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #4a5b6a;
+            text-decoration: none;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #007bff;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .brand-name {
+                font-size: 24px;
+            }
+
+            .home-btn {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Signup Page Styles */
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f4f8;
+            padding-top: 80px; /* To prevent overlap with fixed navbar */
+            box-sizing: border-box;
+        }
+
+        .signup-box {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .signup-box h2 {
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .signup-text {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .signup-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .signup-box {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .signup-btn {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            .signup-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Navbar -->
+    <nav class="navbar">
+        <a class="brand-name" href="#">Invenzo</a>
+        <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    </nav>
+
+    <!-- Sign-Up Section -->
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Sign Up for <span class="plan-name">{{ plan | capitalize }}</span> Plan</h2>
+            <p class="signup-text">Fill in your details to proceed with the payment.</p>
+
+            <form action="{{ url_for('payment') }}" method="GET">
+                <input type="hidden" name="plan" value="{{ plan }}">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+
+                <button type="submit" class="signup-btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

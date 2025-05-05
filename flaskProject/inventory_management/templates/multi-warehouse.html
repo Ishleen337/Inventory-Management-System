@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Warehouse Management - Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/features.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <section class="container mt-5 text-center">
+        <h1>Multi-Warehouse Management</h1>
+        <p>Managing inventory across multiple warehouses has never been easier. This feature allows you to efficiently handle stock levels at various locations, perform inter-warehouse transfers, and keep everything organized in one place. Whether you're managing a large retail network or handling bulk supplies, this tool ensures smooth coordination and optimal stock control across all your warehouses.</p>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>What is Multi-Warehouse Management?</h3>
+                <p>Multi-Warehouse Management is a powerful tool designed to streamline the tracking, movement, and control of inventory across different locations. It helps businesses that operate in more than one physical location (e.g., multiple stores, distribution centers, or warehouses) keep their stock organized, reduce overstocking or stockouts, and manage inter-location transfers effectively.</p>
+                
+                <p>This tool allows businesses to view real-time inventory data across various locations, providing them with an overview of their entire operation and enabling efficient decision-making processes. From managing inventory to fulfilling customer orders, multi-warehouse management simplifies operations, reducing the complexities of manual stock management.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Benefits of Multi-Warehouse Management</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Efficient Stock Control: Track and monitor stock levels in multiple locations simultaneously, ensuring that you have the right amount of inventory in the right places.</li>
+                    <li class="list-group-item">Real-Time Visibility: Get real-time updates on stock movements and inventory levels, making it easier to track sales, forecast demand, and optimize your stock replenishment process.</li>
+                    <li class="list-group-item">Streamlined Transfers: Easily manage inter-warehouse transfers, ensuring products are available where needed and reducing delays in fulfilling orders.</li>
+                    <li class="list-group-item">Reduced Stockouts and Overstocking: Balance inventory levels across locations, ensuring that no warehouse is overstocked or running out of crucial products.</li>
+                    <li class="list-group-item">Improved Order Fulfillment: With multiple warehouses managing orders, the likelihood of timely fulfillment improves, leading to faster shipping times and better customer satisfaction.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Key Features</h3>
+                <p>The Multi-Warehouse Management feature provides a wide range of tools to help you manage your inventory effectively. Some key features include:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Inventory Overview: View all warehouses' stock levels in a unified dashboard.</li>
+                    <li class="list-group-item">Transfer Management: Seamlessly transfer stock between warehouses with full control and tracking.</li>
+                    <li class="list-group-item">Stock Alerts: Set alerts for low stock levels at any location to prevent stockouts.</li>
+                    <li class="list-group-item">Real-Time Data Sync: Ensure all inventory data is updated across all locations in real-time.</li>
+                    <li class="list-group-item">Custom Reporting: Generate reports for each warehouse, track performance, and assess inventory trends across locations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>How Multi-Warehouse Management Works</h3>
+                <p>The system centralizes all your inventory data, allowing you to manage each warehouse individually while maintaining an overarching view of the entire operation. Here’s how the process works:</p>
+                <ol>
+                    <li>Add each of your warehouses or locations into the system, along with the types of products each one holds.</li>
+                    <li>Track inventory in real time as products are sold, received, or transferred across warehouses.</li>
+                    <li>Manage inter-warehouse transfers: When one warehouse runs low on stock, initiate a transfer from another location to meet demand.</li>
+                    <li>Monitor stock levels: Get insights into how well your products are selling and make decisions on which warehouse requires restocking or redistribution.</li>
+                    <li>Generate reports to analyze trends, sales, and inventory turnover across all warehouses.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Use Cases for Multi-Warehouse Management</h3>
+                <p>This feature is ideal for businesses that operate multiple locations. Some use cases include:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">Retail Chains: For businesses that have stores across different regions, it helps maintain centralized stock management and track sales in real-time.</li>
+                    <li class="list-group-item">E-Commerce: Online stores with multiple fulfillment centers can use this feature to ensure optimal stock levels and efficient order fulfillment.</li>
+                    <li class="list-group-item">Wholesale Distributors: Manage stock at multiple warehouses to handle bulk orders and distribute goods efficiently.</li>
+                    <li class="list-group-item">Multi-National Operations: Large operations with warehouses in different countries can track inventory across borders and ensure a smooth supply chain.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4" style="max-width: 800px; margin: 0 auto;">
+            <div class="card-body">
+                <h3>Getting Started with Multi-Warehouse Management</h3>
+                <p>Setting up the multi-warehouse management system is simple and straightforward. Here's a quick guide to get started:</p>
+                <ol>
+                    <li>Register all your warehouses or locations in the system, ensuring each one has the correct inventory information.</li>
+                    <li>Enable real-time synchronization for all locations, ensuring that updates are reflected across all warehouses instantly.</li>
+                    <li>Set up transfer rules to manage stock levels across locations and automate alerts for stock thresholds.</li>
+                    <li>Begin managing inventory seamlessly, transferring stock between warehouses as needed, and monitor stock movements in real-time.</li>
+                    <li>Generate reports for better insights into stock levels, performance, and trends across all warehouses.</li>
+                </ol>
+                <p>Get started today to optimize your inventory management and streamline your operations across multiple locations!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Invenzo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

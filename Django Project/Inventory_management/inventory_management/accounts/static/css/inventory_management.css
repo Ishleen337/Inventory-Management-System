@@ -1,0 +1,156 @@
+body{
+    margin-top:60px;
+    padding:0;
+}
+/* Sidebar CSS */
+.side-navbar {
+    width: 250px;
+    background-color: #343a40;
+    padding-top: 20px;
+    color: #fff;
+    height: auto;
+    min-height: calc(100vh - 60px); /* Ensure sidebar at least extends to viewport height */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow-y: auto; /* Add scrollbar if content overflows */
+}
+
+.side-navbar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+.side-navbar a:hover {
+    background-color: #495057;
+}
+
+/* Main Content CSS */
+.main-container {
+    margin-left: 250px; /* Add margin to create space between sidebar and form */
+    padding: 20px;
+    flex: 1;
+   
+    overflow-y: auto; /* Add scrollbar for main content */
+}
+
+.container {
+    max-width: 100%; /* Ensure the container takes up the full available width */
+    width: 100%;
+    
+    min-height: calc(100vh - 60px); /* Ensure main content at least extends to viewport height */
+}
+
+h2 {
+    color: #2c3e50;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container1 {
+    flex-grow: 1; /* Allow table container to take up available space */
+    overflow-x: auto; /* For horizontal scrolling if needed */
+}
+
+/* Table CSS */
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+
+
+.table-primary th,
+.table-primary td {
+    padding: 12px;
+    text-align: left;
+    border: none;
+    background-color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #0e0e0e;
+    vertical-align: middle; /* Align cell content vertically */
+}
+
+.table-primary th {
+    background-color: #1f272f;
+    color: #f9f5f5;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid #f6f8fa;
+    padding: 16px 12px;
+}
+
+.table-primary tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.table-primary tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.table-primary tr td:first-child,
+.table-primary tr th:first-child {
+    padding-left: 20px;
+}
+
+.table-primary tr td:last-child,
+.table-primary tr th:last-child {
+    padding-right: 20px;
+}
+
+.table-primary tbody tr:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Action Button Styles */
+.btn-warning, .btn-danger {
+    margin: 0 5px; /* Add some space between buttons */
+}
+
+@media (max-width: 400px) { /* Adjust breakpoint as needed */
+    .container {
+        flex-direction: column; /* Stack side-navbar and table vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .side-navbar {
+        width: 100%; /* Make side-navbar full width */
+        margin-bottom: 20px; /* Add some space below navbar */
+    }
+
+    .table-responsive {
+        overflow-x: auto; /* Enable horizontal scrolling for the table */
+    }
+
+    .table-primary th,
+    .table-primary td {
+        white-space: nowrap; /* Prevent content from wrapping */
+    }
+
+    .table-primary tr td:first-child,
+    .table-primary tr th:first-child {
+        padding-left: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .table-primary tr td:last-child,
+    .table-primary tr th:last-child {
+        padding-right: 10px; /* Reduce padding on smaller screens */
+    }
+}
+

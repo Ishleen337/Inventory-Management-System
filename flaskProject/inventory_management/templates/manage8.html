@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace & Shopping Cart | Invenzo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding-top: 60px;
+        }
+
+        .navbar {
+            background-color: #4c4f56;
+            padding: 18px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .navbar-brand {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar .nav-link {
+            color: #fff;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn-add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .cart-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cart-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .btn-remove {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-remove:hover {
+            background-color: #e53935;
+        }
+
+        .checkout-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+
+        .cart-btn {
+            background-color: #FF9800;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .cart-btn:hover {
+            background-color: #fb8c00;
+        }
+
+        .cart-modal {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .product-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Invenzo Marketplace</a>
+        <div class="navbar-nav">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal">Shopping Cart</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="product-card">
+            <h5>Product 1</h5>
+            <p>$25.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 1', 25)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 2</h5>
+            <p>$40.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 2', 40)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 3</h5>
+            <p>$15.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 3', 15)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 4</h5>
+            <p>$50.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 4', 50)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 5</h5>
+            <p>$30.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 5', 30)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 6</h5>
+            <p>$20.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 6', 20)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 7</h5>
+            <p>$35.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 7', 35)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 8</h5>
+            <p>$60.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 8', 60)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 9</h5>
+            <p>$22.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 9', 22)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 10</h5>
+            <p>$45.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 10', 45)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 11</h5>
+            <p>$38.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 11', 38)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <h5>Product 12</h5>
+            <p>$50.00</p>
+            <button class="btn-add-to-cart" onclick="addToCart('Product 12', 50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Modal for Cart -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body cart-modal" id="cart-items">
+                    <!-- Cart Items will be injected here dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize the cart if not present
+        if (!localStorage.getItem('cart')) {
+            localStorage.setItem('cart', JSON.stringify([]));
+        }
+
+        function addToCart(productName, productPrice) {
+            alert(`${productName} has been added to your cart!`);
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name: productName, price: productPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                let cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <h5>${item.name}</h5>
+                    <p>Price: $${item.price}</p>
+                    <button class="btn-remove" onclick="removeItem('${item.name}')">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        function removeItem(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function checkout() {
+            alert('Proceeding to checkout...');
+            // Implement checkout logic here
+        }
+
+        // Load cart on page load
+        window.onload = renderCart;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

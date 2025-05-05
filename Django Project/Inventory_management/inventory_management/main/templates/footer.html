@@ -1,0 +1,25 @@
+<footer>
+    <div class="footer-top">
+        <p>Send us an <a href="#">Email</a> (or) Call India - 18005726671 (Monday - Friday 9:00AM to 7:00PM)</p>
+    </div>
+
+    <div class="footer-links">
+        <div class="footer-section">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="{% url 'order_management' %}">Order Management</a></li>
+                <li><a href="{% url 'inventory' %}">Inventory Tracking</a></li>
+                <li><a href="{% url 'warehouse_management' %}">Warehouse Management</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 Invenzo Corporation Pvt. Ltd. All Rights Reserved.</p>
+        <p>
+            <a href="{% url 'security' %}">Security</a> | 
+            <a href="{% url 'terms_of_service' %}">Terms of Service</a> | 
+            <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
+        </p>
+    </div>
+</footer>
