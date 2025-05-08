@@ -4,6 +4,10 @@ A **dynamic**, **modular**, and **scalable** Inventory Management System enginee
 
 ---
 
+**DEPLOYMENT LINK :-** https://lizasingla.pythonanywhere.com/
+
+---
+
 ## 🚀 Tech Stack Overview
 
 | Layer          | Technology                           |
@@ -159,7 +163,5 @@ Special thanks to the brilliant minds who built this system:
 * 👩‍💻 **Ishleen Kaur**
 * 👩‍💼 **Gurleen Kaur**
 * 💡 **Liza**
-
-**DEPLOYMENT LINK :-** https://lizasingla.pythonanywhere.com/
 
 > ⭐ Don’t forget to **star** the repo if you liked the project. Your support means a lot!
