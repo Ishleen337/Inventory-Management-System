@@ -160,4 +160,6 @@ Special thanks to the brilliant minds who built this system:
 * 👩‍💼 **Gurleen Kaur**
 * 💡 **Liza**
 
+**DEPLOYMENT LINK :-** https://lizasingla.pythonanywhere.com/
+
 > ⭐ Don’t forget to **star** the repo if you liked the project. Your support means a lot!
